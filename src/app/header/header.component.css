@@ -7,3 +7,19 @@
 .icon{
     padding: 0 14px;
 }
+.example-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+    background-color: rgba(145, 216, 238, 0.7);
+  }

@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbarColor">
-    <button mat-icon-button class="icon"> 
+    <button mat-icon-button class="icon" (click)="drawer.toggle()"> 
         <mat-icon>menu</mat-icon> 
     </button>
     <button  mat-button>Festivals</button>
@@ -11,3 +11,11 @@
 
 
 </mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div class="sidenavDiv"> 
+            <p>Festival 2021</p>
+        </div>
+    </mat-drawer>
+</mat-drawer-container>
