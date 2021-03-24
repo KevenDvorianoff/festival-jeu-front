@@ -1,0 +1,9 @@
+.spacer{
+    flex: 1 1 auto;
+}
+.toolbarColor{
+    background-color: rgba(125, 220, 146, 0.7);
+}
+.icon{
+    padding: 0 14px;
+}
