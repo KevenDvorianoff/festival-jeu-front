@@ -2,20 +2,45 @@
     <button mat-icon-button class="icon" (click)="drawer.toggle()"> 
         <mat-icon>menu</mat-icon> 
     </button>
-    <button  mat-button>Festivals</button>
-    <button  mat-button>Jeux</button>
-    <button  mat-button>Editeurs</button>
-    <button  mat-button>Organisateurs</button>
+    <button mat-button routerlinkactive="toolbar-item-selected">Festivals</button>
+    <button mat-button routerlinkactive="toolbar-item-selected">Jeux</button>
+    <button mat-button routerlinkactive="toolbar-item-selected">Editeurs</button>
+    <button mat-button routerlinkactive="toolbar-item-selected">Organisateurs</button>
     <span class="spacer"></span>
-    <button mat-button><mat-icon> logout </mat-icon>Logout</button>
-
-
+    <button mat-button>
+        <mat-icon>logout</mat-icon>
+        Logout
+    </button>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <div class="sidenavDiv"> 
-            <p>Festival 2021</p>
+<mat-drawer-container class="sidenav-container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <div class="sidenav-title">
+            Festival 2021
         </div>
+        <mat-nav-list role="navigation">
+            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+                <mat-icon class="sidenav-icon">extension</mat-icon>
+                Jeux
+            </a>
+            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+                <mat-icon class="sidenav-icon">assignment</mat-icon>
+                Réservations
+            </a>
+            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+                <mat-icon class="sidenav-icon">receipt_long</mat-icon>
+                Factures
+            </a>
+            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+                <mat-icon class="sidenav-icon">place</mat-icon>
+                Zones
+            </a>
+            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+                <mat-icon class="sidenav-icon">groups</mat-icon>
+                Editeurs
+            </a>
+        </mat-nav-list>
     </mat-drawer>
+    <mat-drawer-content>
+    </mat-drawer-content>
 </mat-drawer-container>
