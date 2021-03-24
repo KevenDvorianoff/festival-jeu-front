@@ -35,10 +35,10 @@
   padding-right: 10px;
 }
 
-.sidenav-item-selected, .toolbar-item-selected {
-  background: rgba(0, 0, 0, 0.4);
+.mat-nav-list .sidenav-item-selected, .toolbar-item-selected {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.sidenav-item-selected:hover, .toolbar-item-selected:hover {
-  background: rgba(0, 0, 0, 0.7);
+.mat-nav-list .sidenav-item-selected:hover, .toolbar-item-selected:hover {
+  background: rgba(0, 0, 0, 0.4);
 }

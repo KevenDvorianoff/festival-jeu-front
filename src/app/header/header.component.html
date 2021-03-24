@@ -2,10 +2,10 @@
     <button mat-icon-button class="icon" (click)="drawer.toggle()"> 
         <mat-icon>menu</mat-icon> 
     </button>
-    <button mat-button routerlinkactive="toolbar-item-selected">Festivals</button>
-    <button mat-button routerlinkactive="toolbar-item-selected">Jeux</button>
-    <button mat-button routerlinkactive="toolbar-item-selected">Editeurs</button>
-    <button mat-button routerlinkactive="toolbar-item-selected">Organisateurs</button>
+    <button mat-button routerLinkActive="toolbar-item-selected">Festivals</button>
+    <button mat-button routerLinkActive="toolbar-item-selected">Jeux</button>
+    <button mat-button routerLinkActive="toolbar-item-selected">Editeurs</button>
+    <button mat-button routerLinkActive="toolbar-item-selected">Organisateurs</button>
     <span class="spacer"></span>
     <button mat-button>
         <mat-icon>logout</mat-icon>
@@ -19,28 +19,31 @@
             Festival 2021
         </div>
         <mat-nav-list role="navigation">
-            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/test">
                 <mat-icon class="sidenav-icon">extension</mat-icon>
                 Jeux
             </a>
-            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+            <a mat-list-item routerLinkActive="sidenav-item-selected">
                 <mat-icon class="sidenav-icon">assignment</mat-icon>
                 Réservations
             </a>
-            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+            <a mat-list-item routerLinkActive="sidenav-item-selected">
                 <mat-icon class="sidenav-icon">receipt_long</mat-icon>
                 Factures
             </a>
-            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+            <a mat-list-item routerLinkActive="sidenav-item-selected">
                 <mat-icon class="sidenav-icon">place</mat-icon>
                 Zones
             </a>
-            <a mat-list-item routerlinkactive="sidenav-item-selected" href="/">
+            <a mat-list-item routerLinkActive="sidenav-item-selected">
                 <mat-icon class="sidenav-icon">groups</mat-icon>
                 Editeurs
             </a>
         </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content>
+        <router-outlet>
+
+        </router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>
