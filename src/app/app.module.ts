@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TestComponent } from './test/test.component';
+import { Test2Component } from './test2/test2.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
@@ -15,7 +17,9 @@ import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    TestComponent,
+    Test2Component
   ],
   imports: [
     BrowserModule,
