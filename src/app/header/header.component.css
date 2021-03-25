@@ -1,5 +1,5 @@
 .spacer{
-  flex: 1 1 auto;
+  flex: 1 1 auto; 
 }
 
 .toolbarColor{
@@ -43,11 +43,10 @@
 }
 
 .logo-menu-container {
-  display: flex;
+  padding: 25px;
   justify-content: center;
 }
 
 .logo-menu-container .logo-menu {
   width: 150px;
-  padding-bottom: 20px;
 }
