@@ -5,7 +5,7 @@ import {ListFestivalComponent} from './list-festival/list-festival.component';
 import { EditeursComponent } from './editeurs/editeurs.component';
 const routes: Routes = [
   { path: 'list-festival-component', component: ListFestivalComponent},
-  { path: 'jeux', component: GameListComponent }
+  { path: 'jeux', component: GameListComponent },
   { path: 'editeurs', component: EditeursComponent}
 ];
 
