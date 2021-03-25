@@ -3,9 +3,8 @@
     <button mat-icon-button class="icon" (click)="drawer.toggle()" (click)="changePosition()"> 
         <mat-icon>menu</mat-icon> 
     </button>
-    </div>
     <button mat-button routerLink="/list-festival-component" routerLinkActive="toolbar-item-selected">Festivals</button>
-    <button mat-button routerLink="/test2-component" routerLinkActive="toolbar-item-selected">Jeux</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/jeux">Jeux</button>
     <button mat-button routerLinkActive="toolbar-item-selected">Editeurs</button>
     <button mat-button routerLinkActive="toolbar-item-selected">Organisateurs</button>
     
@@ -22,7 +21,7 @@
             Festival 2021
         </div>
         <mat-nav-list role="navigation">
-            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/test">
+            <a mat-list-item routerLinkActive="sidenav-item-selected">
                 <mat-icon class="sidenav-icon">extension</mat-icon>
                 Jeux
             </a>
