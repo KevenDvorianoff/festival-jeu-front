@@ -13,7 +13,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ListFestivalComponent } from './list-festival/list-festival.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { EditeursComponent } from './editeurs/editeurs.component';
 import { GameListComponent } from './game-list/game-list.component';
 
 
@@ -23,7 +22,6 @@ import { GameListComponent } from './game-list/game-list.component';
     HeaderComponent,
     GameListComponent,
     ListFestivalComponent,
-    EditeursComponent
   ],
   imports: [
     BrowserModule,
