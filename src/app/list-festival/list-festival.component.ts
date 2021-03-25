@@ -8,6 +8,7 @@ import { ListFestivals, ListFestivalService } from './list-festival.service';
   styleUrls: ['./list-festival.component.css']
 })
 export class ListFestivalComponent{
+ 
   error: any;
   headers: string[] | undefined;
   listfestivals: ListFestivals | undefined; 

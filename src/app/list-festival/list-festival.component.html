@@ -1,12 +1,20 @@
-<p>list-festival works!</p>
+
 <h3>Data</h3>
 <div>
-  <button (click)= "showConfig_v2()">get data</button>
+  <mat-grid-list cols="2" rowHeight="2.5:1">
+    <mat-grid-tile >
+      <button (click)= "showConfig_v2()">get data</button>
   <span *ngIf="listfestivals">
-    <p>Name is "{{listfestivals.name}}"</p>
-    <p>Date is "{{listfestivals.date}}"</p>
-    <p>This festival is active ?  {{listfestivals.isActive}}</p>
-    
+    <p>Name : "{{listfestivals.name}}"</p>
+    <p>Date : "{{listfestivals.date}}"</p>
+    <p>Current Festival ? {{listfestivals.isActive}}</p>
   </span>
+ 
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+
 </div>
 

@@ -13,6 +13,7 @@ import { Test2Component } from './test2/test2.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ListFestivalComponent } from './list-festival/list-festival.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ListFestivalComponent } from './list-festival/list-festival.component';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
