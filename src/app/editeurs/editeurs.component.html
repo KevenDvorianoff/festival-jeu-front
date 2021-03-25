@@ -1,1 +1,22 @@
-<p>editeurs works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Nom Editeur</mat-card-title>
+    </mat-card-header>
+        <img mat-card-image  class="img-editeur" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <br>
+      <p>
+        Autres infos ....
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="seeGames">
+      <button mat-button > Voir les jeux</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <span class="spacer"></span>
+
+  <div class="addEditeur">
+    <button mat-button class="addEditeur" (click)="openDialog()"> Ajouter éditeur</button>
+  </div>
+  

@@ -14,6 +14,9 @@ import { MatListModule } from '@angular/material/list';
 import { ListFestivalComponent } from './list-festival/list-festival.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { GameListComponent } from './game-list/game-list.component';
+import {MatCardModule} from '@angular/material/card';
+import { EditeursComponent, EditeursComponentDialog } from './editeurs/editeurs.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -22,6 +25,8 @@ import { GameListComponent } from './game-list/game-list.component';
     HeaderComponent,
     GameListComponent,
     ListFestivalComponent,
+    EditeursComponent,
+    EditeursComponentDialog
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,9 @@ import { GameListComponent } from './game-list/game-list.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

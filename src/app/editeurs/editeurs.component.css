@@ -1,0 +1,37 @@
+.example-card {
+    max-width: 150px;
+    max-height: 250px;
+    margin: 20px;
+    background-color: rgba(145, 216, 238, 0.3);
+    box-shadow: none;
+    
+  }
+
+  .example-card:hover{
+    background-color: rgba(145, 216, 238, 0.4);
+  }
+
+  .img-editeur{
+      max-width: 95%;
+      margin: 2.5%;
+      border-radius: 7px;
+  }
+
+  .seeGames{
+    padding-left: 17%;
+  }
+
+  .addEditeur{
+      display: flex;
+      justify-content: center;
+  }
+
+  button.addEditeur{
+    background-color: rgba(125, 220, 146, 0.7);
+  }
+
+  .spacer{
+    flex: 1 1 auto; 
+  }
+  
+  
