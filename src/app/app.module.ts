@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ListFestivalComponent } from './list-festival/list-festival.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { EditeursComponent } from './editeurs/editeurs.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppComponent,
     HeaderComponent,
     Test2Component,
-    ListFestivalComponent
+    ListFestivalComponent,
+    EditeursComponent
   ],
   imports: [
     BrowserModule,
@@ -39,3 +41,5 @@ import {MatGridListModule} from '@angular/material/grid-list';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+const menuIcon = document.querySelector('.anim');

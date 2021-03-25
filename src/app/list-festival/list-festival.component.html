@@ -5,6 +5,7 @@
     <mat-grid-tile >
       <button (click)= "showConfig_v2()">get data</button>
   <span *ngIf="listfestivals">
+    <p>Id : {{listfestivals.id}}</p>
     <p>Name : "{{listfestivals.name}}"</p>
     <p>Date : "{{listfestivals.date}}"</p>
     <p>Current Festival ? {{listfestivals.isActive}}</p>
