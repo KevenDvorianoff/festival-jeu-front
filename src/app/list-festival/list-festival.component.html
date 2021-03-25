@@ -1,0 +1,12 @@
+<p>list-festival works!</p>
+<h3>Data</h3>
+<div>
+  <button (click)= "showConfig_v2()">get data</button>
+  <span *ngIf="listfestivals">
+    <p>Name is "{{listfestivals.name}}"</p>
+    <p>Date is "{{listfestivals.date}}"</p>
+    <p>This festival is active ?  {{listfestivals.isActive}}</p>
+    
+  </span>
+</div>
+
