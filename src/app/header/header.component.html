@@ -14,7 +14,7 @@
 </mat-toolbar>
   
 <mat-drawer-container class="sidenav-container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-drawer #drawer class="sidenav" mode="side" opened="true">
         <div class="sidenav-title">
             Festival 2021
         </div>
@@ -40,6 +40,10 @@
                 Editeurs
             </a>
         </mat-nav-list>
+        <span class="spacer"></span>
+        <div class="logo-menu-container">
+            <img src="../../assets/image/logo_FDJ_FINAL_800.png" class="logo-menu">
+        </div>
     </mat-drawer>
     <mat-drawer-content>
         <router-outlet>

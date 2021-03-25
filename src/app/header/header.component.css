@@ -41,3 +41,12 @@
 .mat-nav-list .sidenav-item-selected:hover, .toolbar-item-selected:hover {
   background: rgba(0, 0, 0, 0.4);
 }
+
+.logo-menu-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-menu-container .logo-menu {
+  width: 150px;
+}
