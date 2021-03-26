@@ -3,19 +3,16 @@
 <div>
   <mat-grid-list cols="2" rowHeight="2.5:1">
     <mat-grid-tile >
-      <button (click)= "showConfig_v2()">get data</button>
-  <span *ngIf="listfestivals">
-    <p>Id : {{listfestivals.id}}</p>
-    <p>Name : "{{listfestivals.name}}"</p>
-    <p>Date : "{{listfestivals.date}}"</p>
-    <p>Current Festival ? {{listfestivals.isActive}}</p>
-  </span>
- 
+      <span *ngFor="let festival of festivals">{{festival.name}}</span>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
   </mat-grid-list>
-
+  <br>
+  <div class="addFestival">
+    <button mat-button class="addFestival" (click)="openDialog()"> Ajouter un Festival</button>
+  </div>
+  
 </div>
 

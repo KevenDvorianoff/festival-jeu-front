@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { ListFestivalComponent } from './list-festival/list-festival.component';
+import { ListFestivalComponent, FestivalsComponentDialog } from './list-festival/list-festival.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { GameListComponent } from './game-list/game-list.component';
 import {MatCardModule} from '@angular/material/card';
@@ -26,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     GameListComponent,
     ListFestivalComponent,
     EditeursComponent,
-    EditeursComponentDialog
+    EditeursComponentDialog,
+    FestivalsComponentDialog
   ],
   imports: [
     BrowserModule,

@@ -3,18 +3,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError, observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Festival } from './festival';
 
-export interface ListFestivals {
-  id: number;
-  name: string;
-  date: any;
-  isActive: boolean;
-}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ListFestivalService {
-  configUrl = 'assets/config.json';
+  configUrl = 'http://localhost:3000/festival';
   constructor(private http: HttpClient) { }
 
   getConfig() {
@@ -22,9 +18,12 @@ export class ListFestivalService {
   }
  
 
-  getConfig2() {
-    return this.http.get<ListFestivals>(this.configUrl);
+  getFestivals() {
+    return this.http.get<Festival[]>(this.configUrl);
   }
 
+  addFestival(festival: Festival): Observable<Festival> {
+    return this.http.post<Festival>(this.configUrl, festival) ;
+  }
 
 }

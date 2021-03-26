@@ -1,3 +1,11 @@
 mat-grid-tile {
     background: lightblue;
   }
+  .addFestival{
+    display: flex;
+    justify-content: center;
+}
+button.addFestival{
+  background-color: rgba(125, 220, 146, 0.7);
+}
+
