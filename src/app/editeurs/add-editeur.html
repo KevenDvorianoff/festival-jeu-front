@@ -1,11 +1,23 @@
 <h1 mat-dialog-title>Ajouter un Editeur</h1>
 <div mat-dialog-content>
-  <mat-form-field>
+  <p>
+  <mat-form-field >
     <mat-label>Nom de l'éditeur</mat-label>
     <input matInput [(ngModel)]="data.name">
   </mat-form-field>
+  </p>
+  <p>
+  <mat-form-field>
+    <mat-label>Adresse</mat-label>
+    <input matInput [(ngModel)]="data.address">
+  </mat-form-field>
+  </p>
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="data.isPublisher">Editeur</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="data.isExhibitor">Exposant</mat-checkbox>
+  </section>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </div>

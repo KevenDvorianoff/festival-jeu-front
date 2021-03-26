@@ -20,9 +20,9 @@ export class EditeursComponent {
 
   name!: string;
   address!: string;
-  isPublisher!: boolean;
-  isExhibitor!: boolean;
-  isActive!: boolean;
+  isPublisher = false;
+  isExhibitor = false ;
+  isActive = false;
   
 
 
@@ -40,7 +40,11 @@ export class EditeursComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      this.name = result;
+      this.name = result.name;
+      this.address = result.address;
+      this.isPublisher = result.isPublisher;
+      this.isExhibitor = result.isExhibitor;
+      this.isActive = result.isActive;
     });
   }
 }
