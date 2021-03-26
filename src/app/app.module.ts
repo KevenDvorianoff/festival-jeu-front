@@ -17,7 +17,12 @@ import { GameListComponent } from './game-list/game-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { EditeursComponent, EditeursComponentDialog } from './editeurs/editeurs.component';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
