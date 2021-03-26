@@ -1,13 +1,15 @@
 
-<h3>Data</h3>
+
 <div>
+  <br>
   <mat-grid-list cols="2" rowHeight="2.5:1">
-    <mat-grid-tile >
-      <span *ngFor="let festival of festivals">{{festival.name}}</span>
+    
+      <span *ngFor="let festival of festivals">
+        <mat-grid-tile > 
+        <h2> {{festival.name}}</h2> 
+
     </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
+  </span>
   </mat-grid-list>
   <br>
   <div class="addFestival">
