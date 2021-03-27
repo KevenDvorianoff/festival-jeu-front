@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ListFestivalService } from './list-festival.service';
 import { Festival } from './festival';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export interface Fest {
+  name: string;
+  date: string;
+  isActive: boolean;
+}
 
 @Component({
   selector: 'app-festivals',
@@ -15,6 +20,9 @@ export class ListFestivalComponent implements OnInit{
   headers: string[] | undefined;
   festivals: Festival[] =[];
   editFestival: Festival | undefined;
+  name: string ="";
+  date: string ="";
+  isActive: boolean= false;
 
 
   constructor(private listfestivalservice: ListFestivalService, public dialog: MatDialog ) { }
@@ -22,10 +30,18 @@ export class ListFestivalComponent implements OnInit{
     this.getFestivals();
   }
   openDialog() {
-    const dialogRef = this.dialog.open(FestivalsComponentDialog);
+    const dialogRef = this.dialog.open(FestivalsComponentDialog, {
+      width: '60%',
+      data : {name: this.name, 
+        date: this.date,  
+        isActive: this.isActive}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.name = result;
+      this.date = result;
+      this.isActive = result;
     });
   }
 
@@ -47,4 +63,12 @@ export class ListFestivalComponent implements OnInit{
   selector: 'app-festival',
   templateUrl: './add-festival.html',
 })
-export class FestivalsComponentDialog {}
+export class FestivalsComponentDialog {
+  constructor(
+    public dialogRef: MatDialogRef<FestivalsComponentDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Festival) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
