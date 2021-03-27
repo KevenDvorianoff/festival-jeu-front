@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Ajouter un organisateur </h1>
+<div mat-dialog-content>
+    <p>
+    <mat-form-field >
+      <mat-label>Login</mat-label>
+      <input matInput [(ngModel)]="data.login">
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="data.password">
+    </mat-form-field>
+    </p>
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="data.isAdmin">Admin</mat-checkbox>
+    </section>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ajouter l'organisateur</button>
+  </div>

@@ -23,7 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { OrganisatorListComponent } from './organisator-list/organisator-list.component';
+import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organisator-list/organisator-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { OrganisatorListComponent } from './organisator-list/organisator-list.co
     EditeursComponent,
     EditeursComponentDialog,
     FestivalsComponentDialog,
-    OrganisatorListComponent
+    OrganisatorListComponent,
+    OrganisatorsComponentDialog
   ],
   imports: [
     BrowserModule,

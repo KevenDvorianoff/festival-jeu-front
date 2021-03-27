@@ -1,0 +1,12 @@
+
+    .addAccount{
+      display: flex;
+      justify-content: center;
+  }
+  button.addAccount{
+    background-color: rgba(125, 220, 146, 0.7);
+  }
+
+  mat-grid-tile {
+    background-color: rgba(145, 216, 238, 0.3);
+    }
