@@ -15,7 +15,7 @@ import { ListFestivalComponent, FestivalsComponentDialog } from './list-festival
 import {MatGridListModule} from '@angular/material/grid-list';
 import { GameListComponent } from './game-list/game-list.component';
 import {MatCardModule} from '@angular/material/card';
-import { EditeursComponent, EditeursComponentDialog } from './editeurs/editeurs.component';
+import { EditeursComponent, EditeursAddComponentDialog, EditeurGamesComponentDialog} from './editeurs/editeurs.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
@@ -24,6 +24,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organisator-list/organisator-list.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,9 @@ import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organis
     GameListComponent,
     ListFestivalComponent,
     EditeursComponent,
-    EditeursComponentDialog,
+    EditeursAddComponentDialog,
     FestivalsComponentDialog,
-    OrganisatorListComponent,
-    OrganisatorsComponentDialog
+    OrganisatorListComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,9 @@ import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organis
     MatSelectModule,
     MatCheckboxModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
