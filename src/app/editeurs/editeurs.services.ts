@@ -6,6 +6,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import {Editeur } from './editeur';
 import { GameService } from '../game-list/game.service';
 import { Game } from '../game-list/game';
+import { Contact } from '../contacts/contact';
 
 
 @Injectable({
@@ -25,6 +26,12 @@ getGamesForEditeur(id: number): Observable<Game[]>{
   var url = 'http://localhost:3000/game/company/' + id;
   
   return this.http.get<Game[]>(url)
+}
+
+getContactForCompany(id: number): Observable<Contact[]>{
+  var url = 'http://localhost:3000/contact/company/' + id;
+  
+  return this.http.get<Contact[]>(url)
 }
 
 addEditeur(editeur: Editeur): Observable<Editeur> {

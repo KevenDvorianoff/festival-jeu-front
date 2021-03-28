@@ -4,6 +4,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import { Editeur } from './editeur';
 import { Game } from '../game-list/game';
+import { Contact } from '../contacts/contact';
+import {MatTableDataSource} from '@angular/material/table';
+
 
 export interface EditeurId{
   id: number;
@@ -55,7 +58,10 @@ export class EditeursComponent implements OnInit{
 
   openGamesDialog(id: number) : void {
     const dialogRef = this.dialog.open(EditeurGamesComponentDialog,
-      {data : {id: id}});
+      {
+        width: '40%',
+        height:'50%',
+        data : {id: id}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -106,6 +112,9 @@ export class EditeurGamesComponentDialog implements OnInit{
 
 
   games: Game[] = [];
+  contacts: Contact[] = [];
+
+  dataSource = new MatTableDataSource(this.contacts);
 
 
 
@@ -117,10 +126,18 @@ export class EditeurGamesComponentDialog implements OnInit{
 
     ngOnInit(){
       this.getGames(this.data.id)
+      this.getContect(this.data.id)
     }
 
     getGames(id: number): void {
       this.editeursService.getGamesForEditeur(id).subscribe(game => {this.games = game});
+    }
+    getContect(id: number): void {
+      this.editeursService.getContactForCompany(id).subscribe(contact => {this.contacts = contact});
+    }
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
 }
