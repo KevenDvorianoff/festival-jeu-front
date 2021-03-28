@@ -28,6 +28,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ZonesComponent } from './zones/zones.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EditeurGamesComponentDialog,
     FestivalsComponentDialog,
     OrganisatorListComponent,
-    OrganisatorsComponentDialog
+    OrganisatorsComponentDialog,
+    ZonesComponent
     
   ],
   imports: [
