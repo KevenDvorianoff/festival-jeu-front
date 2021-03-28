@@ -10,3 +10,6 @@
   mat-grid-tile {
     background-color: rgba(145, 216, 238, 0.3);
     }
+  td{
+    padding-left: 8px;
+  }

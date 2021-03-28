@@ -1,12 +1,13 @@
 
 <ul >
-    <mat-grid-list class="p" cols="1" rowHeight="2.5:1">
+    <mat-grid-list class="p" cols="1" rowHeight="4.2:1">
         <mat-grid-tile class ="mat-grid" > 
-    <li *ngFor="let organisator of organisators">
-        {{organisator.username}}
-        <button mat-raised-button color="primary">Modifier</button>
-        <button mat-raised-button color="warn">Supprimer</button>
-</li>
+    <span *ngFor="let organisator of organisators">
+         {{organisator.username}}
+        <button mat-raised-button color="primary" (click)="openDialog2()">Modifier</button> 
+        <button mat-raised-button color="warn">Supprimer</button> 
+
+    </span>
 </mat-grid-tile>
 </mat-grid-list>
 </ul>

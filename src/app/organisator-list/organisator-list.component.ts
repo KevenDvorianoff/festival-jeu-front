@@ -50,6 +50,21 @@ export class OrganisatorListComponent implements OnInit {
       this.isAdmin = result;
     });
   }
+  openDialog2() {
+    const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
+      width: '60%',
+      data : {username: this.username, 
+        password: this.password,  
+        isAdmin: this.isAdmin}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.username = result;
+      this.password = result;
+      this.isAdmin = result;
+    });
+  }
 }
 @Component({
   selector: 'app-organisateur-add',
