@@ -14,4 +14,5 @@ export interface Game {
     publisherName: string;
     gameType: string;
     publisherId: number;
+    gameTypeId: number;
 }

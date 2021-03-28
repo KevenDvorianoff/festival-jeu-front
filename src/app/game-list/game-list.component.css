@@ -14,3 +14,11 @@
 .hide-header {
     display: none;
 }
+
+.list-header {
+    background-color: rgba(125, 220, 146, 0.7);
+}
+
+.list-raw:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
