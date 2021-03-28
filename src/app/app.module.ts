@@ -75,7 +75,7 @@ import { CurrentGameComponent } from './current-game/current-game.component';
     MatStepperModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
     MatSnackBarModule
   ],
   providers: [],
