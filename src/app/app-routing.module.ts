@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GameListComponent } from './game-list/game-list.component';
-import {ListFestivalComponent} from './list-festival/list-festival.component';
+import { ListFestivalComponent } from './list-festival/list-festival.component';
 import { EditeursComponent } from './editeurs/editeurs.component';
 import { OrganisatorListComponent } from './organisator-list/organisator-list.component';
+
 const routes: Routes = [
-  { path: 'festival', component: ListFestivalComponent},
+  { path: 'festival', component: ListFestivalComponent },
   { path: 'jeux', component: GameListComponent },
-  { path: 'editeurs', component: EditeursComponent},
-  {path: 'organisateurs', component: OrganisatorListComponent}
+  { path: 'editeurs', component: EditeursComponent },
+  { path: 'organisateurs', component: OrganisatorListComponent }
 ];
 
 @NgModule({
@@ -16,5 +17,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
- 
+export class AppRoutingModule { }

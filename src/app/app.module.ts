@@ -12,20 +12,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ListFestivalComponent, FestivalsComponentDialog } from './list-festival/list-festival.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { GameListComponent } from './game-list/game-list.component';
-import {MatCardModule} from '@angular/material/card';
-import { EditeursComponent, EditeursAddComponentDialog, EditeurGamesComponentDialog} from './editeurs/editeurs.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { EditeursComponent, EditeursAddComponentDialog, EditeurGamesComponentDialog } from './editeurs/editeurs.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organisator-list/organisator-list.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     FormsModule,
     MatSlideToggleModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

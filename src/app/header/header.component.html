@@ -1,21 +1,21 @@
 <mat-toolbar class="toolbarColor">
-    <div [@menuState]="position"> 
-        <button mat-icon-button class="icon" (click)="drawer.toggle()" (click)="changePosition()"> 
-            <mat-icon>menu</mat-icon> 
+    <div [@menuState]="position">
+        <button mat-icon-button class="icon" (click)="drawer.toggle()" (click)="changePosition()">
+            <mat-icon>menu</mat-icon>
         </button>
     </div>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/festival">Festivals</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/jeux">Jeux</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/editeurs">Editeurs</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/organisateurs">Organisateurs</button>
-    
+
     <span class="spacer"></span>
     <button mat-button>
         <mat-icon>logout</mat-icon>
         Déconnexion
     </button>
 </mat-toolbar>
-  
+
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side" opened="true">
         <div class="sidenav-title">
