@@ -1,9 +1,9 @@
 
-    .addAccount{
+    .addUser{
       display: flex;
       justify-content: center;
   }
-  button.addAccount{
+  button.addUser{
     background-color: rgba(125, 220, 146, 0.7);
   }
 

@@ -4,11 +4,6 @@ import { OrganisatorService } from './organisator.service';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 
-export interface Account {
-  login: string;
-  password: string;
-  isAdmin: boolean;
-}
 @Component({
   selector: 'app-organisator-list',
   templateUrl: './organisator-list.component.html',
@@ -17,8 +12,8 @@ export interface Account {
 })
 export class OrganisatorListComponent implements OnInit {
   organisators: Organisator[] = [];
-  editAccount: Organisator | undefined;
-  login: string ="";
+  editUser: Organisator | undefined;
+  username: string ="";
   password: string ="";
   isAdmin: boolean= false;
 
@@ -31,26 +26,26 @@ export class OrganisatorListComponent implements OnInit {
   getOrganisators(): void {
     this.organisatorService.getOrganisators().subscribe(organisators => {this.organisators = organisators})
   }
-  addAccount(login: string): void {
-    this.editAccount = undefined;
-    login = login.trim();
-    if(!login) {
+  addUser(username: string): void {
+    this.editUser = undefined;
+    username = username.trim();
+    if(!username) {
       return;
     }
-    const newAccount: Organisator = {login} as Organisator;
-    this.organisatorService.addAccount(newAccount).subscribe(account => this.organisators.push(account));
+    const newUser: Organisator = {username} as Organisator;
+    this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
   }
   openDialog() {
     const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
       width: '60%',
-      data : {login: this.login, 
+      data : {username: this.username, 
         password: this.password,  
         isAdmin: this.isAdmin}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      this.login = result;
+      this.username = result;
       this.password = result;
       this.isAdmin = result;
     });

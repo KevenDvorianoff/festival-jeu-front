@@ -35,8 +35,10 @@ import {MatStepperModule} from '@angular/material/stepper';
     ListFestivalComponent,
     EditeursComponent,
     EditeursAddComponentDialog,
+    EditeurGamesComponentDialog,
     FestivalsComponentDialog,
-    OrganisatorListComponent
+    OrganisatorListComponent,
+    OrganisatorsComponentDialog
   ],
   imports: [
     BrowserModule,

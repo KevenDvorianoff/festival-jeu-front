@@ -3,13 +3,13 @@
     <mat-grid-list class="p" cols="1" rowHeight="2.5:1">
         <mat-grid-tile class ="mat-grid" > 
     <li *ngFor="let organisator of organisators">
-        {{organisator.login}}
+        {{organisator.username}}
         <button mat-raised-button color="primary">Modifier</button>
         <button mat-raised-button color="warn">Supprimer</button>
 </li>
 </mat-grid-tile>
 </mat-grid-list>
 </ul>
-<div class="addAccount">
-    <button mat-button class="addAccount" (click)="openDialog()"> Ajouter un Organisateur</button>
+<div class="addUser">
+    <button mat-button class="addUser" (click)="openDialog()"> Ajouter un Organisateur</button>
   </div>

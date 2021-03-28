@@ -8,7 +8,7 @@ import { Organisator } from './organisator';
 })
 export class OrganisatorService {
 
-  organisatorUrl = 'http://localhost:3000/account';
+  organisatorUrl = 'http://localhost:3000/user';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class OrganisatorService {
       return this.http.get<Organisator[]>(this.organisatorUrl
         )
   }
-  addAccount(account: Organisator): Observable<Organisator> {
-    return this.http.post<Organisator>(this.organisatorUrl, account) ;
+  addUser(user: Organisator): Observable<Organisator> {
+    return this.http.post<Organisator>(this.organisatorUrl, user) ;
   }
 }
