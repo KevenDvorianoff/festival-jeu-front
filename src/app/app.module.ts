@@ -31,8 +31,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ZonesComponent } from './zones/zones.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationComponent, ReservationsInfosComponentDialog } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CurrentGameComponent } from './current-game/current-game.component';
     OrganisatorsComponentDialog,
     ZonesComponent,
     ReservationComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    ReservationsInfosComponentDialog
     
   ],
   imports: [
@@ -76,7 +78,8 @@ import { CurrentGameComponent } from './current-game/current-game.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

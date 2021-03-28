@@ -1,0 +1,15 @@
+<mat-dialog-content>
+    <ul >
+        
+        <span *ngFor="let reservation of resa">
+           <h2> Infos</h2>
+            Besoin Volontaires ? {{reservation.needVolunteers}}
+            <br>
+            Présent ? {{reservation.isPresent}}
+             <br>
+             Placé ? {{reservation.isPlaced}}
+            <br>
+             Date : {{reservation.reservationDate}}
+        </span>
+    </ul>
+</mat-dialog-content>

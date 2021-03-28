@@ -1,0 +1,36 @@
+.example-card {
+    max-width: 150px;
+    max-height: 250px;
+    margin: 20px;
+    background-color: rgba(145, 216, 238, 0.3);
+    box-shadow: none;
+    
+  }
+
+  .example-card:hover{
+    background-color: rgba(145, 216, 238, 0.4);
+  }
+
+  .seeInfos{
+    padding-left: 17%;
+  }
+
+  .addReservation{
+      display: flex;
+      justify-content: center;
+  }
+
+  button.addReservation{
+    background-color: rgba(125, 220, 146, 0.7);
+  }
+
+  .spacer{
+    flex: 1 1 auto; 
+  }
+
+  .container{
+    display: flex;
+    justify-content: left;
+  }
+  
+  

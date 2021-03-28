@@ -1,1 +1,23 @@
 <p>reservation works!</p>
+<div class="container">
+    <mat-card class="example-card" *ngFor="let reservation of reservations">
+        <mat-card-header>
+          <mat-card-title>{{reservation.comment}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <br>
+          <p>
+              date:
+            {{reservation.reservationDate}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="seeInfos">
+          <button mat-button (click)="openGamesDialog(reservation.id)"> Voir les infos</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+      <span class="spacer"></span>
+    
+      <!-- <div class="addReservation">
+        <button mat-button class="addReservation" (click)="openAddDialog()"> Ajouter une réservation</button>
+      </div> -->
