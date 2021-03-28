@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ListFestivalService } from './list-festival.service';
 import { Festival } from './festival';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 export interface Fest {
   name: string;
   date: string;
@@ -62,13 +62,15 @@ export class ListFestivalComponent implements OnInit{
 @Component({
   selector: 'app-festival',
   templateUrl: './add-festival.html',
+  styleUrls: ['./add-festival.css']
 })
 export class FestivalsComponentDialog {
   constructor(
     public dialogRef: MatDialogRef<FestivalsComponentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Festival) {}
+    @Inject(MAT_DIALOG_DATA) public data: Festival, private _snackBar: MatSnackBar) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+ 
 }

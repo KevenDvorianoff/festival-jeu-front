@@ -27,6 +27,8 @@ import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organis
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { MatTableModule } from '@angular/material/table';
     FestivalsComponentDialog,
     OrganisatorListComponent,
     OrganisatorsComponentDialog
+    
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,9 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

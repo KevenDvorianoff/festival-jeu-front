@@ -12,3 +12,6 @@ button.addFestival{
 .mat-grid:hover{
     background-color: rgba(145, 216, 238, 0.4);
   }
+  td {
+    padding-right: 8px;
+  }
