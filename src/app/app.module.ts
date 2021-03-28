@@ -27,7 +27,9 @@ import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organis
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ZonesComponent } from './zones/zones.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
@@ -72,8 +74,9 @@ import { CurrentGameComponent } from './current-game/current-game.component';
     MatSlideToggleModule,
     MatStepperModule,
     MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
     MatSnackBarModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

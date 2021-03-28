@@ -1,0 +1,16 @@
+.game-list {
+    margin: 20px;
+}
+
+.game-list-filter {
+    font-size: 14px;
+    width: 30%;
+}
+
+.game-list-table {
+    width: 100%;
+}
+
+.hide-header {
+    display: none;
+}
