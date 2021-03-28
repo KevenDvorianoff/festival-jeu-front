@@ -53,7 +53,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     ZonesComponent,
     ReservationComponent,
     CurrentGameComponent,
-    MatTabsModule
+    ContactsComponent,
+    ReservationsInfosComponentDialog
     
   ],
   imports: [
@@ -80,7 +81,9 @@ import { ContactsComponent } from './contacts/contacts.component';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
