@@ -29,6 +29,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ZonesComponent } from './zones/zones.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { CurrentGameComponent } from './current-game/current-game.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { ZonesComponent } from './zones/zones.component';
     FestivalsComponentDialog,
     OrganisatorListComponent,
     OrganisatorsComponentDialog,
-    ZonesComponent
+    ZonesComponent,
+    ReservationComponent,
+    CurrentGameComponent
     
   ],
   imports: [
