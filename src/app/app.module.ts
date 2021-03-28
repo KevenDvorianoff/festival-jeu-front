@@ -52,7 +52,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     OrganisatorsComponentDialog,
     ZonesComponent,
     ReservationComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    MatTabsModule
     
   ],
   imports: [
