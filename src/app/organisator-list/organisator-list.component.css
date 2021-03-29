@@ -13,3 +13,11 @@
   td{
     padding-left: 8px;
   }
+
+  .green-icon {
+    color: green;
+}
+
+.red-icon {
+    color: red;
+}

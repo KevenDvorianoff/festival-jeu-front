@@ -19,4 +19,11 @@ export class OrganisatorService {
   addUser(user: Organisator): Observable<Organisator> {
     return this.http.post<Organisator>(this.organisatorUrl, user) ;
   }
+  deleteOrganisator(id: number): Observable<{}> {
+    const url = `${this.organisatorUrl}/${id}`; 
+    return this.http.delete(url)
+  }
+  updateOrganisateur(organisateur: Organisator): Observable<Organisator> {
+    return this.http.put<Organisator>(this.organisatorUrl, organisateur);
+  }
 }

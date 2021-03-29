@@ -3,7 +3,7 @@
     <p>
     <mat-form-field >
       <mat-label>Username</mat-label>
-      <input matInput [(ngModel)]="data.username" required>
+      <input matInput [(ngModel)]="data.username" #username required>
     </mat-form-field>
     </p>
     <p>
@@ -18,5 +18,5 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Annuler</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ajouter l'organisateur</button>
+    <button mat-button [mat-dialog-close]="data" (click)="addUser(username.value)" cdkFocusInitial>Ajouter l'organisateur</button>
   </div>

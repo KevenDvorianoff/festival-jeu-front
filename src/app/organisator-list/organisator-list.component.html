@@ -4,13 +4,17 @@
         <mat-grid-tile class ="mat-grid" > 
     <span *ngFor="let organisator of organisators">
          {{organisator.username}}
-        <button mat-raised-button color="primary" (click)="openDialog2()">Modifier</button> 
-        <button mat-raised-button color="warn">Supprimer</button> 
+         <button mat-icon-button>
+            <mat-icon class="green-icon"(click)="edit(organisator)">edit</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon class="red-icon" (click)="deleteOrganisator(organisator)">delete</mat-icon>
+        </button>
 
     </span>
 </mat-grid-tile>
 </mat-grid-list>
 </ul>
 <div class="addUser">
-    <button mat-button class="addUser" (click)="openDialog()"> Ajouter un Organisateur</button>
+     <button mat-button class="addUser" (click)="openDialog()"> Ajouter un Organisateur</button>
   </div>

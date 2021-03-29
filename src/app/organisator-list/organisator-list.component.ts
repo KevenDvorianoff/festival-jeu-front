@@ -35,6 +35,15 @@ export class OrganisatorListComponent implements OnInit {
     const newUser: Organisator = {username} as Organisator;
     this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
   }
+  deleteOrganisator(organisateur : Organisator): void {
+    this.organisatorService
+  .deleteOrganisator(organisateur.id)
+  .subscribe();
+  }
+  edit(organisateur: Organisator){
+    this.openDialog();
+    this.editUser = organisateur;
+  }
   openDialog() {
     const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
       width: '60%',
@@ -71,11 +80,23 @@ export class OrganisatorListComponent implements OnInit {
   templateUrl: './add-organisator.html',
 })
 export class OrganisatorsComponentDialog {
-  constructor(
+  organisators: Organisator[] = [];
+  editUser: Organisator | undefined;
+  constructor(private organisatorService: OrganisatorService,
     public dialogRef: MatDialogRef<OrganisatorsComponentDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Organisator) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+  addUser(username: string): void {
+    this.editUser = undefined;
+    username = username.trim();
+    if (!username) {
+      return;
+    }
+    const newUser: Organisator = {username} as Organisator;
+    this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
+  }
+ 
 }
