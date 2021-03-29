@@ -33,9 +33,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ZonesComponent } from './zones/zones.component';
 import { ReservationComponent, ReservationsInfosComponentDialog } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AddGameComponentDialog } from './game-list/add-game.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,8 +56,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     ReservationComponent,
     CurrentGameComponent,
     ContactsComponent,
-    ReservationsInfosComponentDialog
-    
+    ReservationsInfosComponentDialog,
+    AddGameComponentDialog
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     MatPaginatorModule,
     MatSnackBarModule,
     MatTabsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

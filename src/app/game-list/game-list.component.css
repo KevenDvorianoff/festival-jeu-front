@@ -22,3 +22,19 @@
 .list-raw:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.spacer {
+    flex: 1 1 auto; 
+}
+
+.game-list-header {
+    display: flex;
+}
+
+.green-icon {
+    color: green;
+}
+
+.red-icon {
+    color: red;
+}

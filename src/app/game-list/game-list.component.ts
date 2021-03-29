@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddGameComponentDialog } from './add-game.component';
 import { Game } from './game';
 import { GameService } from './game.service';
 
@@ -19,7 +21,10 @@ export class GameListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.getGames();
@@ -41,6 +46,10 @@ export class GameListComponent implements OnInit, AfterViewInit {
     if (this.games.paginator) {
       this.games.paginator.firstPage();
     }
+  }
+
+  openAddDialog(): void {
+    this.dialog.open(AddGameComponentDialog)
   }
 
 }
