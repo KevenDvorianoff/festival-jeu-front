@@ -1,8 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { combineLatest, Observable } from 'rxjs';
+import { combineAll, map, startWith } from 'rxjs/operators';
 import { Editeur } from '../editeurs/editeur';
 import { EditeursService } from '../editeurs/editeurs.services';
+import { GameType } from './game';
 import { GameService } from './game.service';
 
 @Component({
@@ -66,18 +69,31 @@ export class AddGameComponentDialog implements OnInit {
     }
 
     editeurs: Editeur[] = [];
-    gameTypes: string[] = [];
+    filteredGameTypes!: Observable<string[]>;
 
     error?: string;
 
     constructor(
         private gameService: GameService,
         private editeurService: EditeursService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.editeurService.getEditeurs().subscribe(editeurs => this.editeurs = editeurs);
-        this.gameService.getGameTypes().subscribe(gameTypes => this.gameTypes = gameTypes);
+
+        this.filteredGameTypes = combineLatest([
+            this.gameService.getGameTypes(),
+            this.confirmForm.get('gameType')!.valueChanges.pipe(startWith(''))
+        ]).pipe(
+            map(value => this._filter(value))
+        );
+    }
+
+    private _filter(value: [GameType[], string]): string[] {
+        const [gameTypes, userValue] = value
+        const filterValue = userValue.toLowerCase();
+
+        return gameTypes.map(gT => gT.gameType).filter(gameType => gameType.toLowerCase().includes(filterValue));
     }
 
     createGame() {
@@ -98,16 +114,16 @@ export class AddGameComponentDialog implements OnInit {
             this.publisherId,
             this.gameType
         )
-        .subscribe(
-            () => {},
-            (e: HttpErrorResponse) => {
-                if (e.status === 400) {
-                    this.error = 'L\'éditeur indiqué n\'existe pas.';
+            .subscribe(
+                () => { },
+                (e: HttpErrorResponse) => {
+                    if (e.status === 400) {
+                        this.error = 'L\'éditeur indiqué n\'existe pas.';
+                    }
+                    else {
+                        this.error = 'Impossible de créer le jeu.';
+                    }
                 }
-                else {
-                    this.error = 'Impossible de créer le jeu.';
-                }
-            }
-        );
+            );
     }
 }

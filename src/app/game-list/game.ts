@@ -1,5 +1,3 @@
-import { DateAdapter } from '@angular/material/core';
-
 export interface Game {
     id: number;
     name: string;
@@ -14,4 +12,8 @@ export interface Game {
     publisherName: string;
     gameType: string;
     publisherId: number;
+}
+
+export interface GameType {
+    gameType: string;
 }

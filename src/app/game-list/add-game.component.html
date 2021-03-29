@@ -6,64 +6,40 @@
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Nom</mat-label>
             <input matInput required formControlName="name" name="name">
-            <mat-hint class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Notice</mat-label>
             <input matInput required formControlName="notice" name="notice">
-            <mat-hint class="error" *ngIf="notice.invalid && (notice.dirty || notice.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Durée</mat-label>
             <input matInput required formControlName="duration" name="duration">
-            <mat-hint class="error" *ngIf="duration.invalid && (duration.dirty || duration.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Joueurs minimum</mat-label>
             <input type="number" matInput required formControlName="minPlayers" name="minPlayers">
-            <mat-hint class="error" *ngIf="minPlayers.invalid && (minPlayers.dirty || minPlayers.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Joueurs maximum</mat-label>
             <input type="number" matInput required formControlName="maxPlayers" name="maxPlayers">
-            <mat-hint class="error" *ngIf="maxPlayers.invalid && (maxPlayers.dirty || maxPlayers.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Age minimum</mat-label>
             <input type="number" matInput required formControlName="minAge" name="minAge">
-            <mat-hint class="error" *ngIf="minAge.invalid && (minAge.dirty || minAge.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Age maximum</mat-label>
             <input type="number" matInput required formControlName="maxAge" name="maxAge">
-            <mat-hint class="error" *ngIf="maxAge.invalid && (maxAge.dirty || maxAge.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-label>Prototype</mat-label>
         <mat-checkbox required formControlName="isPrototype" name="isPrototype"></mat-checkbox>
-        <mat-hint class="error" *ngIf="isPrototype.invalid && (isPrototype.dirty || isPrototype.touched)">
-            Requis.
-        </mat-hint>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Editeurs</mat-label>
@@ -72,17 +48,16 @@
                     {{editeur.name}}
                 </mat-option>
             </mat-select>
-            <mat-hint class="error" *ngIf="publisherId.invalid && (publisherId.dirty || publisherId.touched)">
-                Requis.
-            </mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" hideRequiredMarker="true">
             <mat-label>Type</mat-label>
-            <input matInput required formControlName="gameType" name="gameType">
-            <mat-hint class="error" *ngIf="gameType.invalid && (gameType.dirty || gameType.touched)">
-                Requis.
-            </mat-hint>
+            <input matInput required formControlName="gameType" name="gameType" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let gameType of filteredGameTypes | async" [value]="gameType">
+                    {{gameType}}
+                </mat-option>
+            </mat-autocomplete>
         </mat-form-field>
 
         <div *ngIf="error" class="error">{{ error }}</div>

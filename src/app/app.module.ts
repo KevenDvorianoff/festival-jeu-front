@@ -38,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddGameComponentDialog } from './game-list/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatTabsModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

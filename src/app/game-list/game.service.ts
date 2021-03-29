@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Game } from './game';
+import { Game, GameType } from './game';
 import { API_URL } from 'src/environments/environment';
 
 const CREATE_GAME_URL = `${API_URL}/game`;
@@ -49,8 +49,8 @@ export class GameService {
         return this.http.get<Game[]>(GET_GAMES_URL);
     }
 
-    getGameTypes(): Observable<string[]> {
-        return this.http.get<string[]>(GET_GAMETYPES_URL);
+    getGameTypes(): Observable<GameType[]> {
+        return this.http.get<GameType[]>(GET_GAMETYPES_URL);
     }
 
     updateGame(
