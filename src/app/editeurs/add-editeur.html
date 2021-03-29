@@ -1,16 +1,16 @@
 <h2>Information de l'éditeur</h2>
 <div mat-dialog-content>
   <p>
-  <mat-form-field >
-    <mat-label>Nom de l'éditeur</mat-label>
-    <input matInput [(ngModel)]="data.name">
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nom de l'éditeur</mat-label>
+      <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
   </p>
   <p>
-  <mat-form-field>
-    <mat-label>Adresse</mat-label>
-    <input matInput [(ngModel)]="data.address">
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Adresse</mat-label>
+      <input matInput [(ngModel)]="data.address">
+    </mat-form-field>
   </p>
   <section class="example-section">
     <mat-checkbox class="example-margin" [(ngModel)]="data.isPublisher">Editeur</mat-checkbox>
@@ -18,11 +18,12 @@
   </section>
   <section class="example-section">
     <mat-slide-toggle class="example-margin" [(ngModel)]="data.isActive">
-      Actif 
+      Actif
     </mat-slide-toggle>
   </section>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="addEditeur(data.name, data.address)">Ajouter</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial
+    (click)="addEditeur(data.name, data.address)">Ajouter</button>
 </div>

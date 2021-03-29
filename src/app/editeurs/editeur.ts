@@ -1,9 +1,9 @@
 export interface Editeur{
-    id: number
+    id: number;
     name: string;
     address: string;
     isPublisher: boolean;
     isExhibitor: boolean;
     isActive: boolean;
-    
+
   }

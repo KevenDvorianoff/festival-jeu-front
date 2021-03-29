@@ -13,9 +13,9 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 export class OrganisatorListComponent implements OnInit {
   organisators: Organisator[] = [];
   editUser: Organisator | undefined;
-  username: string ="";
-  password: string ="";
-  isAdmin: boolean= false;
+  username = '';
+  password = '';
+  isAdmin = false;
 
 
   constructor(private organisatorService: OrganisatorService, public dialog: MatDialog) { }
@@ -24,12 +24,12 @@ export class OrganisatorListComponent implements OnInit {
     this.getOrganisators();
   }
   getOrganisators(): void {
-    this.organisatorService.getOrganisators().subscribe(organisators => {this.organisators = organisators})
+    this.organisatorService.getOrganisators().subscribe(organisators => {this.organisators = organisators; });
   }
   addUser(username: string): void {
     this.editUser = undefined;
     username = username.trim();
-    if(!username) {
+    if (!username) {
       return;
     }
     const newUser: Organisator = {username} as Organisator;
@@ -38,8 +38,8 @@ export class OrganisatorListComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
       width: '60%',
-      data : {username: this.username, 
-        password: this.password,  
+      data : {username: this.username,
+        password: this.password,
         isAdmin: this.isAdmin}
     });
 
@@ -53,8 +53,8 @@ export class OrganisatorListComponent implements OnInit {
   openDialog2() {
     const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
       width: '60%',
-      data : {username: this.username, 
-        password: this.password,  
+      data : {username: this.username,
+        password: this.password,
         isAdmin: this.isAdmin}
     });
 

@@ -14,7 +14,7 @@ export class OrganisatorService {
 
   getOrganisators(): Observable<Organisator[]> {
       return this.http.get<Organisator[]>(this.organisatorUrl
-        )
+        );
   }
   addUser(user: Organisator): Observable<Organisator> {
     return this.http.post<Organisator>(this.organisatorUrl, user) ;

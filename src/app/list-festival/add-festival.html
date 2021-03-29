@@ -1,108 +1,150 @@
 <h1 mat-dialog-title>Ajouter un festival </h1>
 <div mat-dialog-content>
-    <p>
-    <mat-form-field >
+  <p>
+    <mat-form-field>
       <mat-label>Nom du festival</mat-label>
       <input matInput [(ngModel)]="data.name" required>
     </mat-form-field>
-    </p>
-    <p>
-    <mat-form-field  appearance="fill">
-      
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+
       <mat-label>Date</mat-label>
-      
+
       <input matInput [(ngModel)]="data.date" required>
     </mat-form-field>
-    </p>
-    <section class="example-section">
-      <mat-slide-toggle class="example-margin" [(ngModel)]="data.isActive">Actif</mat-slide-toggle>
-    </section>
-    <br>
-    <mat-divider></mat-divider>
-    <div mat-subheader>Zone1</div>
-    <table cellspacing = "0"><tr>
-      <td><mat-form-field>
-         <mat-label>Nom de la zone</mat-label>
-         <input matInput [(ngModel)]="data.date">
-       </mat-form-field></td>
-    <td><mat-form-field>
-           <mat-label>Nombre de m2</mat-label>
-           <input matInput [(ngModel)]="data.date">
-         </mat-form-field> </td>
-         <td><mat-form-field>
-           <mat-label>prix du m2</mat-label>
-           <input matInput [(ngModel)]="data.date">
-         </mat-form-field> </td>
-        </tr> </table>
-
-        <table class="tabledd" cellspacing = "0"><tr>
-          <td><mat-form-field>
-             <mat-label>Nombre de tables</mat-label>
-             <input matInput [(ngModel)]="data.date">
-           </mat-form-field></td>
-        <td><mat-form-field>
-               <mat-label>Prix d'une table</mat-label>
-               <input matInput [(ngModel)]="data.date">
-             </mat-form-field> </td>
-            </tr> </table>
-
-
-    <mat-divider></mat-divider>
-    <div mat-subheader>Zone2</div>
-
-      <table cellspacing = "0"><tr>
-     <td><mat-form-field>
-        <mat-label>Nom de la zone</mat-label>
-        <input matInput [(ngModel)]="data.date">
-      </mat-form-field></td>
-   <td><mat-form-field>
+  </p>
+  <section class="example-section">
+    <mat-slide-toggle class="example-margin" [(ngModel)]="data.isActive">Actif</mat-slide-toggle>
+  </section>
+  <br>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Zone1</div>
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nom de la zone</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
           <mat-label>Nombre de m2</mat-label>
           <input matInput [(ngModel)]="data.date">
-        </mat-form-field> </td>
-        <td><mat-form-field>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
           <mat-label>prix du m2</mat-label>
           <input matInput [(ngModel)]="data.date">
-        </mat-form-field> </td>
-       </tr> </table>
-       <table class="tabledd" cellspacing = "0"><tr>
-        <td><mat-form-field>
-           <mat-label>Nombre de tables</mat-label>
-           <input matInput [(ngModel)]="data.date">
-         </mat-form-field></td>
-      <td><mat-form-field>
-             <mat-label>Prix d'une table</mat-label>
-             <input matInput [(ngModel)]="data.date">
-           </mat-form-field> </td>
-          </tr> </table>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
 
-    <mat-divider></mat-divider>
-    <div mat-subheader>Zone3</div>
-    <table cellspacing = "0"><tr>
-      <td><mat-form-field>
-         <mat-label>Nom de la zone</mat-label>
-         <input matInput [(ngModel)]="data.date">
-       </mat-form-field></td>
-    <td><mat-form-field>
-           <mat-label>Nombre de m2</mat-label>
-           <input matInput [(ngModel)]="data.date">
-         </mat-form-field> </td>
-         <td><mat-form-field>
-           <mat-label>prix du m2</mat-label>
-           <input matInput [(ngModel)]="data.date">
-         </mat-form-field> </td>
-        </tr> </table>
-        <table class="tabledd" cellspacing = "0"><tr>
-          <td><mat-form-field>
-             <mat-label>Nombre de tables</mat-label>
-             <input matInput [(ngModel)]="data.date">
-           </mat-form-field></td>
-        <td><mat-form-field>
-               <mat-label>Prix d'une table</mat-label>
-               <input matInput [(ngModel)]="data.date">
-             </mat-form-field> </td>
-            </tr> </table>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Annuler</button>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ajouter le festival</button>
-  </div>
+  <table class="tabledd" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nombre de tables</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Prix d'une table</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+
+  <mat-divider></mat-divider>
+  <div mat-subheader>Zone2</div>
+
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nom de la zone</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Nombre de m2</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>prix du m2</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table class="tabledd" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nombre de tables</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Prix d'une table</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-divider></mat-divider>
+  <div mat-subheader>Zone3</div>
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nom de la zone</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Nombre de m2</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>prix du m2</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table class="tabledd" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Nombre de tables</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-label>Prix d'une table</mat-label>
+          <input matInput [(ngModel)]="data.date">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ajouter le festival</button>
+</div>

@@ -1,15 +1,12 @@
-
 <mat-tab-group>
-    <mat-tab label="Jeux"> 
-        <ul >
+    <mat-tab label="Jeux">
+        <ul>
             <li *ngFor="let game of games">{{game.name}}</li>
         </ul>
     </mat-tab>
     <mat-tab label="Contact">
-        <ul >
+        <ul>
             <li *ngFor="let contact of contacts">{{contact.firstname}}</li>
         </ul>
-
-          
-   </mat-tab>
-  </mat-tab-group>
+    </mat-tab>
+</mat-tab-group>

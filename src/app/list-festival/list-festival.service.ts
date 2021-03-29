@@ -16,7 +16,7 @@ export class ListFestivalService {
   getConfig() {
     return this.http.get(this.configUrl);
   }
- 
+
 
   getFestivals() {
     return this.http.get<Festival[]>(this.configUrl);

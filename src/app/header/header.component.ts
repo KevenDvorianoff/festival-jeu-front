@@ -8,10 +8,10 @@ import { trigger, style, state, animate, transition } from '@angular/animations'
   animations: [
     trigger(
       'menuState', [
-      state("opened", style({
+      state('opened', style({
         transform: 'rotateZ(90deg)'
       })),
-      state("closed", style({
+      state('closed', style({
         transform: 'rotateZ(0)'
       })),
       transition('* => *', animate('500ms ease'))
@@ -24,14 +24,14 @@ export class HeaderComponent implements OnInit {
   position: String;
 
   constructor() {
-    this.position = "opened";
+    this.position = 'opened';
   }
 
   changePosition() {
-    if (this.position == "closed") {
-      this.position = "opened";
+    if (this.position == 'closed') {
+      this.position = 'opened';
     } else {
-      this.position = "closed";
+      this.position = 'closed';
     }
   }
 

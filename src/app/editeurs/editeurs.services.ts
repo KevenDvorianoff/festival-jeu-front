@@ -14,24 +14,24 @@ import { Contact } from '../contacts/contact';
 })
 export class EditeursService{
   editeurUrl = 'http://localhost:3000/company';
-  
+
   constructor(private http: HttpClient) { }
 
   getEditeurs(): Observable<Editeur[]> {
-    return this.http.get<Editeur[]>(this.editeurUrl)
+    return this.http.get<Editeur[]>(this.editeurUrl);
 }
 
 getGamesForEditeur(id: number): Observable<Game[]>{
-  
-  var url = 'http://localhost:3000/game/company/' + id;
-  
-  return this.http.get<Game[]>(url)
+
+  const url = 'http://localhost:3000/game/company/' + id;
+
+  return this.http.get<Game[]>(url);
 }
 
 getContactForCompany(id: number): Observable<Contact[]>{
-  var url = 'http://localhost:3000/contact/company/' + id;
-  
-  return this.http.get<Contact[]>(url)
+  const url = 'http://localhost:3000/contact/company/' + id;
+
+  return this.http.get<Contact[]>(url);
 }
 
 addEditeur(editeur: Editeur): Observable<Editeur> {

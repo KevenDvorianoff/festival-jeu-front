@@ -1,6 +1,6 @@
 export interface Contact{
-    id : number
-    isPrincipal: boolean
+    id: number;
+    isPrincipal: boolean;
     firstname: string;
     lastname: string;
     email: string;

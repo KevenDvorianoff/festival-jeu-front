@@ -11,14 +11,14 @@ export class ZonesService {
 
   constructor(private http: HttpClient) { }
   getZones(): Observable<Zone[]> {
-    return this.http.get<Zone[]>(this.zoneURL)
+    return this.http.get<Zone[]>(this.zoneURL);
 }
 
 getGamesForArea(id: number): Observable<Game[]>{
-  
-  var url = 'http://localhost:3000/game/area/' + id;
-  
-  return this.http.get<Game[]>(url)
+
+  let url = 'http://localhost:3000/game/area/' + id;
+
+  return this.http.get<Game[]>(url);
 }
 
 

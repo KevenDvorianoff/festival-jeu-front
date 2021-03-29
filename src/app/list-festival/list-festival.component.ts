@@ -18,11 +18,11 @@ export interface Fest {
 export class ListFestivalComponent implements OnInit{
   error: any;
   headers: string[] | undefined;
-  festivals: Festival[] =[];
+  festivals: Festival[] = [];
   editFestival: Festival | undefined;
-  name: string ="";
-  date: string ="";
-  isActive: boolean= false;
+  name = '';
+  date = '';
+  isActive = false;
 
 
   constructor(private listfestivalservice: ListFestivalService, public dialog: MatDialog ) { }
@@ -32,8 +32,8 @@ export class ListFestivalComponent implements OnInit{
   openDialog() {
     const dialogRef = this.dialog.open(FestivalsComponentDialog, {
       width: '60%',
-      data : {name: this.name, 
-        date: this.date,  
+      data : {name: this.name,
+        date: this.date,
         isActive: this.isActive}
     });
 
@@ -46,12 +46,12 @@ export class ListFestivalComponent implements OnInit{
   }
 
   getFestivals(): void {
-    this.listfestivalservice.getFestivals().subscribe(festivals => {this.festivals = festivals})
+    this.listfestivalservice.getFestivals().subscribe(festivals => {this.festivals = festivals; });
   }
   addFestivals(name: string): void {
     this.editFestival = undefined;
     name = name.trim();
-    if(!name) {
+    if (!name) {
       return;
     }
     const newFestival: Festival = {name} as Festival;
@@ -72,5 +72,5 @@ export class FestivalsComponentDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
- 
+
 }

@@ -31,17 +31,17 @@ export class GameService {
         gameType: string
     ) {
         return this.http.post(CREATE_GAME_URL, {
-            name: name,
-            notice: notice,
-            duration: duration,
-            minPlayers: minPlayers,
-            maxPlayers: maxPlayers,
-            minAge: minAge,
-            maxAge: maxAge,
-            isPrototype: isPrototype,
-            lastModification: lastModification,
-            publisherId: publisherId,
-            gameType: gameType
+            name,
+            notice,
+            duration,
+            minPlayers,
+            maxPlayers,
+            minAge,
+            maxAge,
+            isPrototype,
+            lastModification,
+            publisherId,
+            gameType
         });
     }
 
@@ -68,17 +68,17 @@ export class GameService {
         gameType: string
         ) {
         return this.http.patch(UPDATE_GAME_URL(gameId), {
-            name: name,
-            notice: notice,
-            duration: duration,
-            minPlayers: minPlayers,
-            maxPlayers: maxPlayers,
-            minAge: minAge,
-            maxAge: maxAge,
-            isPrototype: isPrototype,
-            lastModification: lastModification,
-            publisherId: publisherId,
-            gameType: gameType
+            name,
+            notice,
+            duration,
+            minPlayers,
+            maxPlayers,
+            minAge,
+            maxAge,
+            isPrototype,
+            lastModification,
+            publisherId,
+            gameType
         });
     }
 

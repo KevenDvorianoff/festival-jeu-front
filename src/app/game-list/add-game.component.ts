@@ -1,9 +1,9 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Editeur } from "../editeurs/editeur";
-import { EditeursService } from "../editeurs/editeurs.services";
-import { GameService } from "./game.service";
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Editeur } from '../editeurs/editeur';
+import { EditeursService } from '../editeurs/editeurs.services';
+import { GameService } from './game.service';
 
 @Component({
     selector: 'app-game-add',
@@ -23,7 +23,7 @@ export class AddGameComponentDialog implements OnInit {
         isPrototype: new FormControl('', [Validators.required]),
         publisherId: new FormControl('', [Validators.required]),
         gameType: new FormControl('', [Validators.required])
-    })
+    });
 
     get name() {
         return this.confirmForm.value.name;
@@ -83,7 +83,7 @@ export class AddGameComponentDialog implements OnInit {
     createGame() {
         this.error = undefined;
 
-        const lastModification = new Date()
+        const lastModification = new Date();
 
         this.gameService.createGame(
             this.name,
@@ -102,10 +102,10 @@ export class AddGameComponentDialog implements OnInit {
             () => {},
             (e: HttpErrorResponse) => {
                 if (e.status === 400) {
-                    this.error = 'L\'éditeur indiqué n\'existe pas.'
+                    this.error = 'L\'éditeur indiqué n\'existe pas.';
                 }
                 else {
-                    this.error = 'Impossible de créer le jeu.'
+                    this.error = 'Impossible de créer le jeu.';
                 }
             }
         );

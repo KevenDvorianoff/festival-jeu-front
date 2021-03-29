@@ -32,36 +32,36 @@ export class EditeursComponent implements OnInit{
   }
 
   getEditeurs(): void {
-    this.editeursService.getEditeurs().subscribe(editeur => {this.editeurs = editeur})
+    this.editeursService.getEditeurs().subscribe(editeur => {this.editeurs = editeur; });
   }
-  
+
 
 
   constructor(public dialog: MatDialog, private editeursService: EditeursService) {}
 
-  
-  openAddDialog() : void {
+
+  openAddDialog(): void {
     const dialogRef = this.dialog.open(EditeursAddComponentDialog, {
       width: '60%',
-      data : {name: this.name, 
-        address: this.address, 
-        isPublisher: this.isPublisher, 
-        isExhibitor: this.isExhibitor, 
+      data : {name: this.name,
+        address: this.address,
+        isPublisher: this.isPublisher,
+        isExhibitor: this.isExhibitor,
         isActive: this.isActive}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      this.editeurs.push(result.editeur)
+      this.editeurs.push(result.editeur);
     });
   }
 
-  openGamesDialog(id: number) : void {
+  openGamesDialog(id: number): void {
     const dialogRef = this.dialog.open(EditeurGamesComponentDialog,
       {
         width: '40%',
-        height:'50%',
-        data : {id: id}});
+        height: '50%',
+        data : {id}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -76,7 +76,7 @@ export class EditeursComponent implements OnInit{
 })
 export class EditeursAddComponentDialog {
 
-  editeur: Editeur | undefined
+  editeur: Editeur | undefined;
 
   constructor(
     public dialogRef: MatDialogRef<EditeursAddComponentDialog>,
@@ -90,11 +90,11 @@ export class EditeursAddComponentDialog {
   addEditeur(name: string, adresse: string): void {
     this.editeur = undefined;
     name = name.trim();
-    if(!name) {
+    if (!name) {
       return;
     }
 
-    var newEditeur: Editeur = { name } as Editeur;
+    const newEditeur: Editeur = { name } as Editeur;
     newEditeur.name = name;
     newEditeur.address = adresse;
 
@@ -125,15 +125,15 @@ export class EditeurGamesComponentDialog implements OnInit{
      {}
 
     ngOnInit(){
-      this.getGames(this.data.id)
-      this.getContect(this.data.id)
+      this.getGames(this.data.id);
+      this.getContect(this.data.id);
     }
 
     getGames(id: number): void {
-      this.editeursService.getGamesForEditeur(id).subscribe(game => {this.games = game});
+      this.editeursService.getGamesForEditeur(id).subscribe(game => {this.games = game; });
     }
     getContect(id: number): void {
-      this.editeursService.getContactForCompany(id).subscribe(contact => {this.contacts = contact});
+      this.editeursService.getContactForCompany(id).subscribe(contact => {this.contacts = contact; });
     }
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;

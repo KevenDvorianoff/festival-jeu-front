@@ -15,7 +15,7 @@ import { GameService } from './game.service';
 })
 export class GameListComponent implements OnInit, AfterViewInit {
 
-  columns: string[] = ['name', 'publisherName', 'minPlayers', 'minAge', 'duration', 'gameType', 'notice', 'isPrototype', 'lastModification', "icons"]
+  columns: string[] = ['name', 'publisherName', 'minPlayers', 'minAge', 'duration', 'gameType', 'notice', 'isPrototype', 'lastModification', 'icons'];
   games = new MatTableDataSource<Game>([]);
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -36,7 +36,7 @@ export class GameListComponent implements OnInit, AfterViewInit {
   }
 
   getGames(): void {
-    this.gameService.getGames().subscribe(games => this.games.data = games)
+    this.gameService.getGames().subscribe(games => this.games.data = games);
   }
 
   applyFilter(event: Event) {
@@ -49,7 +49,7 @@ export class GameListComponent implements OnInit, AfterViewInit {
   }
 
   openAddDialog(): void {
-    this.dialog.open(AddGameComponentDialog)
+    this.dialog.open(AddGameComponentDialog);
   }
 
 }

@@ -17,7 +17,7 @@ export class CurrentGameComponent implements OnInit {
   }
 
   getGames(): void {
-    this.currentGameService.getGames().subscribe(games => {this.games = games})
+    this.currentGameService.getGames().subscribe(games => {this.games = games;});
   }
 
 }

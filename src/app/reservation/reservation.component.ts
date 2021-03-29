@@ -20,12 +20,12 @@ export class ReservationComponent implements OnInit {
   }
 
   getReservations(): void {
-    this.reservationService.getReservations().subscribe(reservations => {this.reservations = reservations})
+    this.reservationService.getReservations().subscribe(reservations => {this.reservations = reservations;});
   }
 
-  openGamesDialog(id: number) : void {
+  openGamesDialog(id: number): void {
     const dialogRef = this.dialog.open(ReservationsInfosComponentDialog,
-      {data : {id: id}});
+      {data : {id}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -52,10 +52,10 @@ export class ReservationsInfosComponentDialog implements OnInit{
      {}
 
     ngOnInit(){
-      this.getGames(this.data.id)
+      this.getGames(this.data.id);
     }
 
     getGames(id: number): void {
-      this.reservationService.getReservations().subscribe(reservation => {this.resa = reservation});
+      this.reservationService.getReservations().subscribe(reservation => {this.resa = reservation;});
     }
   }

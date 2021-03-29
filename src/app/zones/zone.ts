@@ -1,4 +1,4 @@
 export interface Zone{
-    id: number
-    label: string;  
+    id: number;
+    label: string;
   }

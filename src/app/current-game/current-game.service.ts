@@ -11,6 +11,6 @@ export class CurrentGameService {
 
   constructor(private http: HttpClient) { }
   getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(this.gameUrl)
+    return this.http.get<Game[]>(this.gameUrl);
 }
 }

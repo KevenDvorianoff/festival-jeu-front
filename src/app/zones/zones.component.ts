@@ -14,19 +14,19 @@ export interface ZoneId{
 })
 export class ZonesComponent implements OnInit {
 
-  zones: Zone[]= [];
+  zones: Zone[] = [];
   constructor(public dialog: MatDialog, private zonesService: ZonesService) { }
 
   ngOnInit(): void {
     this.getZones();
   }
   getZones(): void {
-    this.zonesService.getZones().subscribe(zone => {this.zones = zone})
+    this.zonesService.getZones().subscribe(zone => {this.zones = zone; });
   }
-  
-  openGamesDialog(id: number) : void {
+
+  openGamesDialog(id: number): void {
     const dialogRef = this.dialog.open(ZoneGamesComponentDialog,
-      {data : {id: id}});
+      {data : {id}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -54,11 +54,11 @@ export class ZoneGamesComponentDialog implements OnInit{
      {}
 
     ngOnInit(){
-      this.getGames(this.data.id)
+      this.getGames(this.data.id);
     }
 
     getGames(id: number): void {
-      this.zonesService.getGamesForArea(id).subscribe(game => {this.games = game});
+      this.zonesService.getGamesForArea(id).subscribe(game => {this.games = game; });
     }
 
 }
