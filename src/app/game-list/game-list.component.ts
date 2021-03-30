@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddGameComponentDialog } from './add-game.component';
 import { Game } from './game';
 import { GameService } from './game.service';
@@ -17,13 +18,16 @@ export class GameListComponent implements OnInit, AfterViewInit {
 
   columns: string[] = ['name', 'publisherName', 'minPlayers', 'minAge', 'duration', 'gameType', 'notice', 'isPrototype', 'lastModification', 'icons'];
   games = new MatTableDataSource<Game>([]);
+  success: boolean = true;
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatTable) table!: MatTable<any>;
 
   constructor(
     private gameService: GameService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -36,7 +40,10 @@ export class GameListComponent implements OnInit, AfterViewInit {
   }
 
   getGames(): void {
-    this.gameService.getGames().subscribe(games => this.games.data = games);
+    this.gameService.getGames().subscribe(games => {
+      this.games.data = games;
+      this.table.renderRows();
+    });
   }
 
   applyFilter(event: Event) {
@@ -49,7 +56,22 @@ export class GameListComponent implements OnInit, AfterViewInit {
   }
 
   openAddDialog(): void {
-    this.dialog.open(AddGameComponentDialog);
+    const dialogRef = this.dialog.open(AddGameComponentDialog, {
+      data: {success: this.success}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getGames();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Jeu ajouté !!")};
+    })
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 2000,
+      panelClass: ['snackbar-success']
+    });
   }
 
 }

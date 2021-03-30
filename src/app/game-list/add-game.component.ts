@@ -1,12 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { combineLatest, Observable } from 'rxjs';
-import { combineAll, map, startWith } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { Editeur } from '../editeurs/editeur';
 import { EditeursService } from '../editeurs/editeurs.services';
 import { GameType } from './game';
 import { GameService } from './game.service';
+
+interface DialogData {
+    success: boolean;
+}
 
 @Component({
     selector: 'app-game-add',
@@ -23,7 +28,7 @@ export class AddGameComponentDialog implements OnInit {
         maxPlayers: new FormControl('', [Validators.required, Validators.min(0)]),
         minAge: new FormControl('', [Validators.required, Validators.min(0)]),
         maxAge: new FormControl('', [Validators.required, Validators.min(0)]),
-        isPrototype: new FormControl('', [Validators.required]),
+        isPrototype: new FormControl(false, [Validators.required]),
         publisherId: new FormControl('', [Validators.required]),
         gameType: new FormControl('', [Validators.required])
     });
@@ -75,7 +80,9 @@ export class AddGameComponentDialog implements OnInit {
 
     constructor(
         private gameService: GameService,
-        private editeurService: EditeursService
+        private editeurService: EditeursService,
+        private dialogRef: MatDialogRef<AddGameComponentDialog>,
+        @Inject(MAT_DIALOG_DATA) public data: DialogData
     ) { }
 
     ngOnInit() {
@@ -113,17 +120,14 @@ export class AddGameComponentDialog implements OnInit {
             lastModification,
             this.publisherId,
             this.gameType
-        )
-            .subscribe(
-                () => { },
-                (e: HttpErrorResponse) => {
-                    if (e.status === 400) {
-                        this.error = 'L\'éditeur indiqué n\'existe pas.';
-                    }
-                    else {
-                        this.error = 'Impossible de créer le jeu.';
-                    }
-                }
-            );
+        ).subscribe(
+            () => {
+                this.data.success = true,
+                this.dialogRef.close(this.data.success)
+            },
+            (e: HttpErrorResponse) => {
+                this.error = 'Impossible de créer le jeu.';
+            }
+        );
     }
 }

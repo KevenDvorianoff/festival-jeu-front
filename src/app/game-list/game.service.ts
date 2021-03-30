@@ -12,7 +12,9 @@ const GET_GAMETYPES_URL = `${API_URL}/game/gameType`;
 const UPDATE_GAME_URL = (gameId: number) => `${API_URL}/game/${gameId}`;
 const DELETE_GAME_URL = (gameId: number) => `${API_URL}/game/${gameId}`;
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GameService {
 
     constructor(private http: HttpClient) { }
@@ -66,7 +68,7 @@ export class GameService {
         lastModification: Date,
         publisherId: number,
         gameType: string
-        ) {
+    ) {
         return this.http.patch(UPDATE_GAME_URL(gameId), {
             name,
             notice,
