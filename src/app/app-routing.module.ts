@@ -11,15 +11,18 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 
 const routes: Routes = [
-  { path: 'festival', component: ListFestivalComponent },
+  { path: '', redirectTo: 'festival-jeux', pathMatch: 'full'},
+  { path: 'connexion', component: AuthFormComponent},
+
+  { path: 'festivals', component: ListFestivalComponent },
   { path: 'jeux', component: GameListComponent },
   { path: 'editeurs', component: EditeursComponent },
   { path: 'organisateurs', component: OrganisatorListComponent },
-  { path: 'zones', component: ZonesComponent},
-  { path: 'reservation', component: ReservationComponent},
-  { path: 'currentGame', component: CurrentGameComponent},
   { path: 'contacts', component: ContactsComponent},
-  { path: 'connexion', component: AuthFormComponent}
+
+  { path: 'festival-jeux', component: CurrentGameComponent},
+  { path: 'festival-reservations', component: ReservationComponent},
+  { path: 'festival-zones', component: ZonesComponent},
 ];
 
 @NgModule({

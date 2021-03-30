@@ -4,7 +4,7 @@
             <mat-icon>menu</mat-icon>
         </button>
     </div>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/festival" *ngIf="connected | async">Festivals</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/festivals" *ngIf="connected | async">Festivals</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/jeux" *ngIf="connected | async">Jeux</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/editeurs" *ngIf="connected | async">Editeurs</button>
     <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/organisateurs" *ngIf="connected | async">Organisateurs</button>
@@ -14,11 +14,11 @@
 
     <button mat-button *ngIf="connected | async" (click)="logout()">
         <mat-icon>logout</mat-icon>
-        Déconnexion
+        Se déconnecter
     </button>
     <button mat-button routerLink="/connexion" *ngIf="!(connected | async)">
         <mat-icon>login</mat-icon>
-        Connexion
+        Se connecter
     </button>
 </mat-toolbar>
 
@@ -28,11 +28,11 @@
             Festival 2021
         </div>
         <mat-nav-list role="navigation">
-            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/currentGame">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/festival-jeux">
                 <mat-icon class="sidenav-icon">extension</mat-icon>
                 Jeux
             </a>
-            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/reservation" *ngIf="connected | async">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/festival-reservations" *ngIf="connected | async">
                 <mat-icon class="sidenav-icon">assignment</mat-icon>
                 Réservations
             </a>
@@ -40,7 +40,7 @@
                 <mat-icon class="sidenav-icon">receipt_long</mat-icon>
                 Factures
             </a>
-            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/zones">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/festival-zones">
                 <mat-icon class="sidenav-icon">place</mat-icon>
                 Zones
             </a>
