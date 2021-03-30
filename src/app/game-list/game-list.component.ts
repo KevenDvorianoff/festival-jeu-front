@@ -8,6 +8,7 @@ import { AddGameComponentDialog } from './add-game.component';
 import { DeleteGameComponentDialog } from './delete-game.component';
 import { Game } from './game';
 import { GameService } from './game.service';
+import { UpdateGameComponentDialog } from './update-game.component';
 
 @Component({
   selector: 'app-game-list',
@@ -77,6 +78,18 @@ export class GameListComponent implements OnInit, AfterViewInit {
       this.getGames();
       this.success = result;
       if (this.success) {this.openSnackBar("Jeu supprimé !")};
+    })
+  }
+
+  openUpdateDialog(game: Game): void {
+    const dialogRef = this.dialog.open(UpdateGameComponentDialog, {
+      data: {success: this.success, game: game}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getGames();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Jeu modifié !")};
     })
   }
 

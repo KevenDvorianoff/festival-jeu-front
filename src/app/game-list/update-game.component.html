@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>Modifier le jeu :</h1>
+
+<form [formGroup]="confirmForm" (ngSubmit)="updateGame()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Nom</mat-label>
+            <input matInput required formControlName="name" name="name">
+        </mat-form-field> 
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Notice</mat-label>
+            <input matInput required formControlName="notice" name="notice">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Durée</mat-label>
+            <input matInput required formControlName="duration" name="duration">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Joueurs minimum</mat-label>
+            <input type="number" matInput required formControlName="minPlayers" name="minPlayers">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Joueurs maximum</mat-label>
+            <input type="number" matInput required formControlName="maxPlayers" name="maxPlayers">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Age minimum</mat-label>
+            <input type="number" matInput required formControlName="minAge" name="minAge">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Age maximum</mat-label>
+            <input type="number" matInput required formControlName="maxAge" name="maxAge">
+        </mat-form-field>
+
+        <mat-label>Prototype</mat-label>
+        <mat-checkbox required formControlName="isPrototype" name="isPrototype"></mat-checkbox>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Editeurs</mat-label>
+            <mat-select required formControlName="publisherId">
+                <mat-option *ngFor="let editeur of editeurs.sort()" [value]="editeur.id">
+                    {{editeur.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Type</mat-label>
+            <input matInput required formControlName="gameType" name="gameType" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let gameType of filteredGameTypes | async" [value]="gameType">
+                    {{gameType}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+
+        <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+            Modifier le jeu
+        </button>
+
+    </mat-dialog-actions>
+</form>
