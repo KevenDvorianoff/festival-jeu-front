@@ -7,6 +7,7 @@ import { ZonesComponent} from './zones/zones.component';
 import { OrganisatorListComponent } from './organisator-list/organisator-list.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'festival', component: ListFestivalComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'organisateurs', component: OrganisatorListComponent },
   { path: 'zones', component: ZonesComponent},
   { path: 'reservation', component: ReservationComponent},
-  { path: 'currentGame', component: CurrentGameComponent}
+  { path: 'currentGame', component: CurrentGameComponent},
+  { path: 'contacts', component: ContactsComponent}
 ];
 
 @NgModule({

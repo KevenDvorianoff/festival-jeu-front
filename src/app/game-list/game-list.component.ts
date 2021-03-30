@@ -21,8 +21,8 @@ export class GameListComponent implements OnInit, AfterViewInit {
   success: boolean = true;
 
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatTable) table!: MatTable<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private gameService: GameService,

@@ -45,7 +45,7 @@ export class GameService {
             publisherId,
             gameType
         });
-    }
+    } 
 
     getGames(): Observable<Game[]> {
         return this.http.get<Game[]>(GET_GAMES_URL);

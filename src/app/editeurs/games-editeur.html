@@ -1,12 +1,43 @@
-<mat-tab-group>
-    <mat-tab label="Jeux">
-        <ul>
-            <li *ngFor="let game of games">{{game.name}}</li>
-        </ul>
-    </mat-tab>
-    <mat-tab label="Contact">
-        <ul>
-            <li *ngFor="let contact of contacts">{{contact.firstname}}</li>
-        </ul>
-    </mat-tab>
-</mat-tab-group>
+<div class="container">
+<div *ngIf="(data.isPublisher && !data.isExhibitor); else exhibitor">
+    <h2>Jeux</h2>
+    <mat-list *ngFor="let game in games">
+        <mat-list-item> {{game.name}} : {{game.gameType}}
+        <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+</div>
+<ng-template #exhibitor>
+    <div *ngIf="(!data.isPublisher && data.isExhibitor); else both">
+        <h2>Contacts</h2>
+        <mat-list *ngFor="let contact in contacts">
+            <mat-list-item> {{contact.firstname}}  {{contact.lastname}}
+            <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+    </div>
+    <ng-template #both>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Jeux">
+                <mat-list *ngFor="let game in games">
+                    <mat-list-item> {{game.name}} : {{game.gameType}}
+                    <mat-divider></mat-divider>
+                    </mat-list-item>
+                  </mat-list>
+            </mat-tab>
+            <mat-tab label="Contacts">
+                <mat-list *ngFor="let contact in contacts">
+                    <mat-list-item> {{contact.firstname}}  {{contact.lastname}}
+                    <mat-divider></mat-divider>
+                    </mat-list-item>
+                  </mat-list>
+            </mat-tab>
+        </mat-tab-group>
+    </ng-template>
+</ng-template>
+<span class="spacer"></span>
+<div>
+    <button mat-button> Supprimer éditeur</button>
+</div>
+</div>
+

@@ -44,14 +44,25 @@ export class EditeursService {
     return this.http.get<Game[]>(url);
   }
 
+addEditeur(name: string,
+  address: string,
+  isActive: boolean,
+  isExhibitor: boolean,
+  isPublisher: boolean
+  ){
+    return this.http.post(this.editeurUrl, {
+      name,
+      address,
+      isExhibitor,
+      isPublisher,
+      isActive
+    });
+}
+ 
   getContactForCompany(id: number): Observable<Contact[]> {
     const url = 'http://localhost:3000/contact/company/' + id;
 
     return this.http.get<Contact[]>(url);
-  }
-
-  addEditeur(editeur: Editeur): Observable<Editeur> {
-    return this.http.post<Editeur>(this.editeurUrl, editeur);
   }
 
 }

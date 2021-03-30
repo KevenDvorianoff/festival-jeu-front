@@ -1,15 +1,20 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { EditeursService } from './editeurs.services';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Editeur } from './editeur';
 import { Game } from '../game-list/game';
 import { Contact } from '../contacts/contact';
 import {MatTableDataSource} from '@angular/material/table';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSort } from '@angular/material/sort';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
 export interface EditeurId{
   id: number;
+  isPublisher: boolean;
+  isExhibitor: boolean;
 }
 
 @Component({
@@ -41,27 +46,18 @@ export class EditeursComponent implements OnInit{
 
 
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(EditeursAddComponentDialog, {
-      width: '60%',
-      data : {name: this.name,
-        address: this.address,
-        isPublisher: this.isPublisher,
-        isExhibitor: this.isExhibitor,
-        isActive: this.isActive}
-    });
+    const dialogRef = this.dialog.open(EditeursAddComponentDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.editeurs.push(result.editeur);
     });
   }
 
-  openGamesDialog(id: number): void {
+  openGamesDialog(id: number, isPublisher: boolean, isExhibitor: boolean) : void {
     const dialogRef = this.dialog.open(EditeurGamesComponentDialog,
       {
         width: '40%',
         height: '50%',
-        data : {id}});
+        data : {id,isPublisher,isExhibitor}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -74,49 +70,70 @@ export class EditeursComponent implements OnInit{
   templateUrl: './add-editeur.html',
   styleUrls: ['./add-editeur.css']
 })
-export class EditeursAddComponentDialog {
+export class EditeursAddComponentDialog{
 
-  editeur: Editeur | undefined;
+  confirmForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    isPublisher: new FormControl(false, [Validators.required]),
+    isExhibitor: new FormControl(false, [Validators.required]),
+    isActive: new FormControl(false, [Validators.required])
+});
+get name() {
+  return this.confirmForm.value.name;
+}
+get address() {
+  return this.confirmForm.value.address;
+}
+get isPublisher() {
+  return this.confirmForm.value.isPublisher;
+}
+get isExhibitor() {
+  return this.confirmForm.value.isExhibitor;
+}
+get isActive() {
+  return this.confirmForm.value.isActive;
+}
 
-  constructor(
-    public dialogRef: MatDialogRef<EditeursAddComponentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Editeur,
-    private editeursService: EditeursService) {}
+constructor(
+  private editeurService: EditeursService,
+  public dialogRef: MatDialogRef<EditeursAddComponentDialog>
+) { 
+}
 
-  onNoClick(): void {
-    this.dialogRef.close();
+addEditeur() {
+
+  this.editeurService.addEditeur(
+      this.name,
+      this.address,
+      this.isActive,
+      this.isExhibitor,
+      this.isPublisher
+  ).subscribe(
+    () => {}
+  );
+
+  if(this.name != '' && this.address != ''){
+    console.log(this.name)
+    this.dialogRef.close()
   }
-
-  addEditeur(name: string, adresse: string): void {
-    this.editeur = undefined;
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-
-    const newEditeur: Editeur = { name } as Editeur;
-    newEditeur.name = name;
-    newEditeur.address = adresse;
-
-    this.editeursService.addEditeur(newEditeur).subscribe(editeur => editeur);
-  }
+}
 
 }
+
+
 
 @Component({
   selector: 'app-editeurs-games',
   templateUrl: './games-editeur.html',
-  styleUrls: ['./games-editeur.css']
+  styleUrls: ['./games-editeur.css'],
 })
 export class EditeurGamesComponentDialog implements OnInit{
-
 
   games: Game[] = [];
   contacts: Contact[] = [];
 
-  dataSource = new MatTableDataSource(this.contacts);
-
-
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     public dialogRef: MatDialogRef<EditeurGamesComponentDialog>,
@@ -134,10 +151,6 @@ export class EditeurGamesComponentDialog implements OnInit{
     }
     getContect(id: number): void {
       this.editeursService.getContactForCompany(id).subscribe(contact => {this.contacts = contact; });
-    }
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
 }
