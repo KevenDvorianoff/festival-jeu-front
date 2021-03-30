@@ -8,6 +8,7 @@ import { OrganisatorListComponent } from './organisator-list/organisator-list.co
 import { ReservationComponent } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AuthFormComponent } from './auth-form/auth-form.component';
 
 const routes: Routes = [
   { path: 'festival', component: ListFestivalComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'zones', component: ZonesComponent},
   { path: 'reservation', component: ReservationComponent},
   { path: 'currentGame', component: CurrentGameComponent},
-  { path: 'contacts', component: ContactsComponent}
+  { path: 'contacts', component: ContactsComponent},
+  { path: 'connexion', component: AuthFormComponent}
 ];
 
 @NgModule({

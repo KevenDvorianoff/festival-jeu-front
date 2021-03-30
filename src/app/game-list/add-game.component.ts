@@ -122,7 +122,7 @@ export class AddGameComponentDialog implements OnInit {
             this.gameType
         ).subscribe(
             () => {
-                this.data.success = true,
+                this.data.success = true;
                 this.dialogRef.close(this.data.success);
             },
             (e: HttpErrorResponse) => {

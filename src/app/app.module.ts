@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +42,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DeleteGameComponentDialog } from './game-list/delete-game.component';
 import { YesNoPipe } from './pipe/yes-no.pipe';
 import { UpdateGameComponentDialog } from './game-list/update-game.component';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import { UpdateGameComponentDialog } from './game-list/update-game.component';
     AddGameComponentDialog,
     DeleteGameComponentDialog,
     YesNoPipe,
-    UpdateGameComponentDialog
+    UpdateGameComponentDialog,
+    AuthFormComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,7 @@ import { UpdateGameComponentDialog } from './game-list/update-game.component';
     ReactiveFormsModule,
     MatAutocompleteModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

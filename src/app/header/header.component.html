@@ -4,17 +4,21 @@
             <mat-icon>menu</mat-icon>
         </button>
     </div>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/festival">Festivals</button>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/jeux">Jeux</button>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/editeurs">Editeurs</button>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/organisateurs">Organisateurs</button>
-    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/contacts">Contacts</button>
-
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/festival" *ngIf="connected | async">Festivals</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/jeux" *ngIf="connected | async">Jeux</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/editeurs" *ngIf="connected | async">Editeurs</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/organisateurs" *ngIf="connected | async">Organisateurs</button>
+    <button mat-button routerLinkActive="toolbar-item-selected" routerLink="/contacts" *ngIf="connected | async">Contacts</button>
 
     <span class="spacer"></span>
-    <button mat-button>
+
+    <button mat-button *ngIf="connected | async" (click)="logout()">
         <mat-icon>logout</mat-icon>
         Déconnexion
+    </button>
+    <button mat-button routerLink="/connexion" *ngIf="!(connected | async)">
+        <mat-icon>login</mat-icon>
+        Connexion
     </button>
 </mat-toolbar>
 
@@ -28,11 +32,11 @@
                 <mat-icon class="sidenav-icon">extension</mat-icon>
                 Jeux
             </a>
-            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/reservation">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" routerLink="/reservation" *ngIf="connected | async">
                 <mat-icon class="sidenav-icon">assignment</mat-icon>
                 Réservations
             </a>
-            <a mat-list-item routerLinkActive="sidenav-item-selected">
+            <a mat-list-item routerLinkActive="sidenav-item-selected" *ngIf="connected | async">
                 <mat-icon class="sidenav-icon">receipt_long</mat-icon>
                 Factures
             </a>

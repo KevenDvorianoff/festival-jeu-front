@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, state, animate, transition } from '@angular/animations';
+import { AuthService } from '../auth/auth.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +25,9 @@ export class HeaderComponent implements OnInit {
 
   position: String;
 
-  constructor() {
+  constructor(
+    private authService: AuthService,
+  ) {
     this.position = 'opened';
   }
 
@@ -38,4 +42,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get connected() {
+    return this.authService.connectionState.pipe(map(value => value === 'connected'))
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }
