@@ -40,7 +40,7 @@ import { AddGameComponentDialog } from './game-list/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DeleteGameComponentDialog } from './game-list/delete-game.component';
-import { YesNoPipe } from './pipe/yes-no.pipe';
+import { YesNoPipe } from './pipes/yes-no.pipe';
 import { UpdateGameComponentDialog } from './game-list/update-game.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
