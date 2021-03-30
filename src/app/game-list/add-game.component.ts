@@ -123,7 +123,7 @@ export class AddGameComponentDialog implements OnInit {
         ).subscribe(
             () => {
                 this.data.success = true,
-                this.dialogRef.close(this.data.success)
+                this.dialogRef.close(this.data.success);
             },
             (e: HttpErrorResponse) => {
                 this.error = 'Impossible de créer le jeu.';

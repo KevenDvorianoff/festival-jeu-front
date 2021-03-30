@@ -54,7 +54,7 @@
 
             <ng-container matColumnDef="isPrototype">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Prototype</th>
-                <td mat-cell *matCellDef="let game">{{game.isPrototype}}</td>
+                <td mat-cell *matCellDef="let game" [ngStyle]="{color: game.isPrototype ? 'green' : 'red'}">{{game.isPrototype | yesNo}}</td>
             </ng-container>
 
             <ng-container matColumnDef="lastModification">
@@ -64,11 +64,11 @@
 
             <ng-container matColumnDef="icons" class="hide-header">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let row">
+                <td mat-cell *matCellDef="let game">
                     <button mat-icon-button>
                         <mat-icon class="green-icon">edit</mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="openDeleteDialog(game)">
                         <mat-icon class="red-icon">delete</mat-icon>
                     </button>
                 </td>

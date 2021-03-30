@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddGameComponentDialog } from './add-game.component';
+import { DeleteGameComponentDialog } from './delete-game.component';
 import { Game } from './game';
 import { GameService } from './game.service';
 
@@ -63,7 +64,19 @@ export class GameListComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getGames();
       this.success = result;
-      if (this.success) {this.openSnackBar("Jeu ajouté !!")};
+      if (this.success) {this.openSnackBar("Jeu ajouté !")};
+    })
+  }
+
+  openDeleteDialog(game: Game): void {
+    const dialogRef = this.dialog.open(DeleteGameComponentDialog, {
+      data: {success: this.success, gameName: game.name, gameId: game.id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getGames();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Jeu supprimé !")};
     })
   }
 

@@ -39,6 +39,8 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AddGameComponentDialog } from './game-list/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { DeleteGameComponentDialog } from './game-list/delete-game.component';
+import { YesNoPipe } from './pipe/yes-no.pipe';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     CurrentGameComponent,
     ContactsComponent,
     ReservationsInfosComponentDialog,
-    AddGameComponentDialog
+    AddGameComponentDialog,
+    DeleteGameComponentDialog,
+    YesNoPipe
   ],
   imports: [
     BrowserModule,
