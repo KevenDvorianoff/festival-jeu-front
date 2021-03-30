@@ -60,6 +60,8 @@
             </mat-autocomplete>
         </mat-form-field>
 
+        <div *ngIf="error" class="error">{{ error }}</div>
+
     </mat-dialog-content>
     <mat-dialog-actions align="end">
 
