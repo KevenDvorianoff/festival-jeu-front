@@ -1,7 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Organisator } from './organisator';
+import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { User } from './organisator';
 import { OrganisatorService } from './organisator.service';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource, MatTable } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 
 @Component({
@@ -10,9 +14,16 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
   providers: [OrganisatorService],
   styleUrls: ['./organisator-list.component.css']
 })
-export class OrganisatorListComponent implements OnInit {
-  organisators: Organisator[] = [];
-  editUser: Organisator | undefined;
+export class OrganisatorListComponent implements OnInit, AfterViewInit {
+columns: string[] = ['username', 'isAdmin'];
+organisateurs = new MatTableDataSource<User>([]);
+success: boolean = true;
+
+@ViewChild(MatSort) sort!: MatSort;
+@ViewChild(MatTable) table!: MatTable<any>;
+@ViewChild(MatPaginator) paginator!: MatPaginator;
+  organisators: User[] = [];
+  editUser: User | undefined;
   username = '';
   password = '';
   isAdmin = false;
@@ -23,8 +34,13 @@ export class OrganisatorListComponent implements OnInit {
   ngOnInit(): void {
     this.getOrganisators();
   }
+  ngAfterViewInit() {
+    this.organisateurs.sort = this.sort;
+    this.organisateurs.paginator = this.paginator;
+  }
   getOrganisators(): void {
-    this.organisatorService.getOrganisators().subscribe(organisators => {this.organisators = organisators; });
+    this.organisatorService.getOrganisators().subscribe(organisateurs => {this.organisateurs.data = organisateurs;
+    this.table.renderRows(); });
   }
   addUser(username: string): void {
     this.editUser = undefined;
@@ -32,15 +48,15 @@ export class OrganisatorListComponent implements OnInit {
     if (!username) {
       return;
     }
-    const newUser: Organisator = {username} as Organisator;
+    const newUser: User = {username} as User;
     this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
   }
-  deleteOrganisator(organisateur : Organisator): void {
+  deleteOrganisator(organisateur : User): void {
     this.organisatorService
   .deleteOrganisator(organisateur.id)
   .subscribe();
   }
-  edit(organisateur: Organisator){
+  edit(organisateur: User){
     this.openDialog();
     this.editUser = organisateur;
   }
@@ -80,11 +96,11 @@ export class OrganisatorListComponent implements OnInit {
   templateUrl: './add-organisator.html',
 })
 export class OrganisatorsComponentDialog {
-  organisators: Organisator[] = [];
-  editUser: Organisator | undefined;
+  organisators: User[] = [];
+  editUser: User | undefined;
   constructor(private organisatorService: OrganisatorService,
     public dialogRef: MatDialogRef<OrganisatorsComponentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Organisator) {}
+    @Inject(MAT_DIALOG_DATA) public data: User) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -95,7 +111,7 @@ export class OrganisatorsComponentDialog {
     if (!username) {
       return;
     }
-    const newUser: Organisator = {username} as Organisator;
+    const newUser: User = {username} as User;
     this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
   }
  

@@ -1,4 +1,4 @@
-export interface Organisator {
+export interface User {
     id: number;
     username: string;
     password: string;

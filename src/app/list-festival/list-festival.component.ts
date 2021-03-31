@@ -3,6 +3,7 @@ import { ListFestivalService } from './list-festival.service';
 import { Festival } from './festival';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormControl, FormGroup } from '@angular/forms';
 export interface Fest {
   name: string;
   date: string;
@@ -65,6 +66,11 @@ export class ListFestivalComponent implements OnInit{
   styleUrls: ['./add-festival.css']
 })
 export class FestivalsComponentDialog {
+  dateRange = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl()
+
+  });
   constructor(
     public dialogRef: MatDialogRef<FestivalsComponentDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Festival, private _snackBar: MatSnackBar) {}
@@ -74,3 +80,4 @@ export class FestivalsComponentDialog {
   }
 
 }
+

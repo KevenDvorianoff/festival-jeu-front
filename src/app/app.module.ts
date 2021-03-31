@@ -97,7 +97,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MatTabsModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatFormFieldModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
