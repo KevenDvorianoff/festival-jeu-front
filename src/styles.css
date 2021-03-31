@@ -26,3 +26,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-simple-snackbar {
   display: inline-block !important;
 }
+
+.mat-card-header-text {
+  display: flex;
+  margin: 0px !important; 
+}

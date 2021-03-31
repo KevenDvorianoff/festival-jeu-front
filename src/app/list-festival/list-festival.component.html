@@ -1,18 +1,37 @@
-<div>
-  
-  <br>
-  <mat-grid-list cols="2" rowHeight="2.5:1">
+<div class="festival-list">
 
-    <span *ngFor="let festival of festivals">
-      <mat-grid-tile class="mat-grid">
-        <h2> {{festival.name}}</h2>
+  <div class="festival-list-header">
+    <h2>Listes des festivals :</h2>
+    <span class="spacer"></span>
+    <button mat-button (click)="openAddFestivalDialog()">
+      <mat-icon class="green-icon">add_box</mat-icon>
+    </button>
+  </div>
 
-      </mat-grid-tile>
-    </span>
-  </mat-grid-list>
-  <br>
-  <div class="addFestival">
-    <button mat-button class="addFestival" (click)="openDialog()"> Ajouter un Festival</button>
+  <div class="card-container">
+    <div *ngFor="let festival of festivals">
+
+      <mat-card class="publisher-card">
+
+        <mat-card-header>
+          <mat-card-title>{{festival.name}} - {{festival.date | date: 'MM/yyyy'}}</mat-card-title>
+          <span class="spacer"></span>
+          <button mat-icon-button (click)="openUpdateFestivalDialog(festival)">
+            <mat-icon class="green-icon">edit</mat-icon>
+          </button>
+        </mat-card-header>
+
+        <mat-card-content>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+        </mat-card-actions>
+
+      </mat-card>
+
+    </div>
   </div>
 
 </div>

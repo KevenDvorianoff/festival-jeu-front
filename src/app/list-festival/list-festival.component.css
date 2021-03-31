@@ -1,17 +1,46 @@
-mat-grid-tile {
-  background-color: rgba(145, 216, 238, 0.3);
-  }
-  .addFestival{
-    display: flex;
-    justify-content: center;
-}
-button.addFestival{
-  background-color: rgba(125, 220, 146, 0.7);
+.festival-list {
+  margin: 20px;
 }
 
-.mat-grid:hover{
-    background-color: rgba(145, 216, 238, 0.4);
-  }
-  td {
-    padding-right: 8px;
-  }
+.festival-list-header {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.green-icon {
+  color: green;
+}
+
+.festival-list-header h2 {
+  margin: 0px;
+}
+
+.mat-card-header {
+  margin-bottom: 10px;
+}
+
+.mat-card-content {
+  margin: 0px;
+}
+
+.mat-card-header .mat-card-title {
+  margin: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.publisher-card {
+  margin: 20px;
+  background-color: rgba(145, 216, 238, 0.4);
+  box-shadow: none;
+}
+
+.publisher-card:hover {
+  background-color: rgba(145, 216, 238, 0.7);
+}
