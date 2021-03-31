@@ -60,7 +60,6 @@ export class CurrentGameComponent implements OnInit, AfterViewInit {
   }
 
   getAreaName(game: ReservedGame) {
-    console.log(game.areaName)
     if (game.areaName !== null) {
       return game.areaName;
     }
