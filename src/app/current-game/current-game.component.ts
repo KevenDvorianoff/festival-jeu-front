@@ -67,7 +67,4 @@ export class CurrentGameComponent implements OnInit, AfterViewInit {
     return 'Autre';
   }
 
-  get connected() {
-    return this.authService.connectionState.pipe(map(value => value === 'connected'))
-  }
 }
