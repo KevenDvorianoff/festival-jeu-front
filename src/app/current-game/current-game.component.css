@@ -1,0 +1,40 @@
+.game-list {
+    margin: 20px;
+}
+
+.game-list-filter {
+    font-size: 14px;
+    width: 30%;
+}
+
+.game-list-table {
+    width: 100%;
+}
+
+.hide-header {
+    display: none;
+}
+
+.list-header {
+    background-color: rgba(125, 220, 146, 0.7);
+}
+
+.list-raw:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.spacer {
+    flex: 1 1 auto; 
+}
+
+.game-list-header {
+    display: flex;
+}
+
+.green-icon {
+    color: green;
+}
+
+.red-icon {
+    color: red;
+}

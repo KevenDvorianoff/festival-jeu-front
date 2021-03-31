@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
+  providers: [ContactService],
   styleUrls: ['./contacts.component.css'],
   animations: [
     trigger('detailExpand', [

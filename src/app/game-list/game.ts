@@ -17,3 +17,5 @@ export interface Game {
 export interface GameType {
     gameType: string;
 }
+
+
