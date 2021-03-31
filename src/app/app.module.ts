@@ -15,7 +15,7 @@ import { ListFestivalComponent, FestivalsComponentDialog } from './list-festival
 import { MatGridListModule } from '@angular/material/grid-list';
 import { GameListComponent } from './game-list/game-list.component';
 import { MatCardModule } from '@angular/material/card';
-import { EditeursComponent, EditeursAddComponentDialog, EditeurGamesComponentDialog } from './editeurs/editeurs.component';
+import { EditeursComponent, EditeursAddComponentDialog, EditeurGamesComponentDialog, EditeursEditComponentDialog } from './editeurs/editeurs.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
@@ -35,7 +35,7 @@ import { ReservationComponent, ReservationsInfosComponentDialog } from './reserv
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
-import { ContactsComponent } from './contacts/contacts.component';
+import { ContactsComponent, ContactAddComponentDialog } from './contacts/contacts.component';
 import { AddGameComponentDialog } from './game-list/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -67,7 +67,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     DeleteGameComponentDialog,
     YesNoPipe,
     UpdateGameComponentDialog,
-    AuthFormComponent
+    AuthFormComponent,
+    EditeursEditComponentDialog,
+    ContactAddComponentDialog
   ],
   imports: [
     BrowserModule,

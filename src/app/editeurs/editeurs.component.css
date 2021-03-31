@@ -52,5 +52,10 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
+
+  .head{
+    padding-top: 12px;
+  }
+
   
   

@@ -58,11 +58,38 @@ addEditeur(name: string,
       isActive
     });
 }
+
+editEditeur(id: number,
+  name: string,
+  address: string,
+  isActive: boolean,
+  isExhibitor: boolean,
+  isPublisher: boolean
+  ){
+
+    const url = this.editeurUrl+"/"+id
+    
+    return this.http.patch(url, {
+      name,
+      address,
+      isExhibitor,
+      isPublisher,
+      isActive
+    });
+}
  
   getContactForCompany(id: number): Observable<Contact[]> {
     const url = 'http://localhost:3000/contact/company/' + id;
 
     return this.http.get<Contact[]>(url);
+  }
+
+  getEditeur(id: number) : Observable<Editeur> {
+
+    const url = this.editeurUrl + "/" + id
+
+    return this.http.get<Editeur>(url);
+
   }
 
 }

@@ -17,7 +17,6 @@ export class ContactService {
     constructor(private http: HttpClient) { }
 
     createContact(
-        id: number,
         isPrincipal: boolean,
         firstname: string,
         lastname: string,
@@ -29,7 +28,6 @@ export class ContactService {
         postalCode: string,
         fonction: string){
         return this.http.post(CREATE_CONTACT_URL, {
-            id,
             isPrincipal,
             firstname,
             lastname,

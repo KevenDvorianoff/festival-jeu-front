@@ -2,8 +2,11 @@
   <div *ngFor="let editeur of editeurs">
     <div *ngIf="editeur.isPublisher; else exposant">
       <mat-card class="editeur-card">
-        <mat-card-header>
-          <mat-card-title>{{editeur.name}}</mat-card-title>
+        <mat-card-header >
+          <mat-card-title class="head">{{editeur.name}}</mat-card-title>
+          <button mat-icon-button>
+            <mat-icon (click)="openEditDialog(editeur)">edit</mat-icon>
+        </button>
         </mat-card-header>
         <mat-card-content>
           <br>
@@ -24,7 +27,10 @@
     <ng-template #exposant>
       <mat-card class="exposant-card">
         <mat-card-header>
-          <mat-card-title>{{editeur.name}}</mat-card-title>
+          <mat-card-title class="head">{{editeur.name}}</mat-card-title>
+          <button mat-icon-button>
+            <mat-icon (click)="openEditDialog(editeur)">edit</mat-icon>
+        </button>
         </mat-card-header>
         <mat-card-content>
           <br>

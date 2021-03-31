@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Information de l'éditeur</h2>
-  <form [formGroup]="confirmForm" (ngSubmit)="addEditeur()">
+  <form [formGroup]="confirmForm" (ngSubmit)="editEditeur()">
       <p>
         <mat-form-field appearance="fill" hideRequiredMarker="true">
           <mat-label>Nom de l'éditeur</mat-label>
@@ -22,7 +22,7 @@
       </section>
     <div mat-dialog-actions>
       <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
-        Ajouter l'éditeur
+        Modifier l'éditeur
       </button>
   </div>
   </form>

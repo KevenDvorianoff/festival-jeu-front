@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Information du contact</h2>
+  <form [formGroup]="confirmForm" (ngSubmit)="addContact()">
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Prénom</mat-label>
+          <input matInput required formControlName="fistname" name="firstname">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Nom</mat-label>
+          <input matInput required formControlName="lastname" name="lastname">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Email</mat-label>
+          <input matInput required formControlName="email" name="email">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Numéro pro</mat-label>
+          <input matInput required formControlName="workPhone" name="workPhone">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Numéro perso</mat-label>
+          <input matInput required formControlName="personalPhone" name="personalPhone">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Numéro et rue</mat-label>
+          <input matInput required formControlName="street" name="street">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Ville</mat-label>
+          <input matInput required formControlName="city" name="city">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Code postal</mat-label>
+          <input matInput required formControlName="postalCode" name="postalCode">
+        </mat-form-field>
+      </p>
+      <section class="example-section">
+        <mat-slide-toggle class="example-margin" formControlName="isActive" name="isActive">
+          Contact principal
+        </mat-slide-toggle>
+      </section>
+    <div mat-dialog-actions>
+      <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+        Ajouter le contact
+      </button>
+  </div>
+  </form>
