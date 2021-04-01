@@ -35,7 +35,7 @@ import { ReservationComponent, ReservationsInfosComponentDialog } from './reserv
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
-import { ContactsComponent, ContactAddComponentDialog } from './contacts/contacts.component';
+import { ContactsComponent, ContactAddComponentDialog, ContactEditComponentDialog, DeleteContactComponentDialog } from './contacts/contacts.component';
 import { AddGameComponentDialog } from './game-list/add-game.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -74,6 +74,10 @@ import { AddOrganisatorComponentDialog} from './organisator-list/add-organisato
     DeleteOrganisatorComponentDialog,
     UpdateOrganisatorComponentDialog,
     AddOrganisatorComponentDialog
+    EditeursEditComponentDialog,
+    ContactAddComponentDialog,
+    ContactEditComponentDialog,
+    DeleteContactComponentDialog
   ],
   imports: [
     BrowserModule,

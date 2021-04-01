@@ -10,5 +10,7 @@ export interface Contact{
     city: string;
     postalCode: string;
     function: string;
+    companyId: number;
+    companyName: string;
 }
 

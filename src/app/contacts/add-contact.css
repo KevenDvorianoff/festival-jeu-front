@@ -6,3 +6,22 @@
   .example-margin {
     margin: 0 10px;
   }
+
+  .contact-form{
+    display: flex;
+  }
+
+  .contact-form-field{
+    margin: 3px;
+  }
+  .contact-form-field-long{
+    margin: 3px;
+    width: 100%;
+  }
+
+  .submit-but{
+    background-color:  rgba(145, 216, 238, 0.6);
+  }
+  .submit-but:hover{
+    background-color:  rgba(145, 216, 238, 0.8);
+  }

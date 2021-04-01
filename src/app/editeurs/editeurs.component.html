@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngFor="let editeur of editeurs">
+  <div *ngFor="let editeur of editeurs.sort()">
     <div *ngIf="editeur.isPublisher; else exposant">
       <mat-card class="editeur-card">
         <mat-card-header >

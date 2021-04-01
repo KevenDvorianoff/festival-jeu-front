@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Information du contact</h2>
-  <form [formGroup]="confirmForm" (ngSubmit)="addContact()">
+  <form [formGroup]="confirmForm" (ngSubmit)="editContact()">
     <div class="contact-form">
       <p>
         <mat-form-field appearance="fill" hideRequiredMarker="true" class="contact-form-field">
@@ -62,26 +62,15 @@
         </mat-form-field>
       </p>
     </div>
-    <div class="contact-form">
-      <mat-form-field appearance="fill" hideRequiredMarker="true" class="contact-form-field">
-        <mat-label>Editeurs</mat-label>
-        <mat-select required formControlName="companyId">
-            <mat-option *ngFor="let editeur of editeurs.sort()" [value]="editeur.id">
-                {{editeur.name}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
     <section class="example-section">
       <mat-slide-toggle class="example-margin" formControlName="isPrincipal" name="isPrincipal">
         Contact principal
       </mat-slide-toggle>
     </section>
-    </div>
       
     <div mat-dialog-actions>
       <button type="submit" mat-flat-button class="submit-but" cdkFocusInitial>
-        Ajouter le contact
+        Modifier le contact
       </button>
   </div>
   </form>

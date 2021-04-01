@@ -26,7 +26,8 @@ export class ContactService {
         street: string,
         city: string,
         postalCode: string,
-        fonction: string){
+        fonction: string,
+        companyId : number){
         return this.http.post(CREATE_CONTACT_URL, {
             isPrincipal,
             firstname,
@@ -37,7 +38,8 @@ export class ContactService {
             street,
             city,
             postalCode,
-            fonction
+            function:fonction,
+            companyId
         });
     } 
 
@@ -69,11 +71,11 @@ export class ContactService {
             street,
             city,
             postalCode,
-            fonction
+            function:fonction
         });
     }
 
-    deleteGame(contactId: number) {
+    deleteContact(contactId: number) {
         return this.http.delete(DELETE_CONTACT_URL(contactId));
     }
 }
