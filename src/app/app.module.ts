@@ -73,7 +73,7 @@ import { AddOrganisatorComponentDialog} from './organisator-list/add-organisato
     AuthFormComponent,
     DeleteOrganisatorComponentDialog,
     UpdateOrganisatorComponentDialog,
-    AddOrganisatorComponentDialog
+    AddOrganisatorComponentDialog,
     EditeursEditComponentDialog,
     ContactAddComponentDialog,
     ContactEditComponentDialog,
