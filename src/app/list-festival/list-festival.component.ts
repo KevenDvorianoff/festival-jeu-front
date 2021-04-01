@@ -29,9 +29,6 @@ export class ListFestivalComponent implements OnInit {
   
   getFestivals(): void {
     this.festivalService.getFestivals().subscribe(festivals => { this.festivals = festivals; });
-    this.festivals.sort(function compare(a, b) {
-      return a.date < b.date ? 1 : 0;
-    });
   }
 
   openAddFestivalDialog() {

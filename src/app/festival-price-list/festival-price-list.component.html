@@ -40,6 +40,15 @@
             <td mat-cell *matCellDef="let price">{{getTableRestante(price)}}/{{price.tableCount}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="icons" class="hide-header">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let price">
+                <button mat-icon-button (click)="openUpdateDialog(price)">
+                    <mat-icon class="green-icon">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="columns" class="list-header"></tr>
         <tr mat-row *matRowDef="let price; columns: columns;" class="list-raw"></tr>
     </table>

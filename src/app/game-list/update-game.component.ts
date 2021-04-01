@@ -11,7 +11,7 @@ import { GameService } from './game.service';
 
 interface DialogData {
     success: boolean;
-    game: Game
+    game: Game;
 }
 
 @Component({

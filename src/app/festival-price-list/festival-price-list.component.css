@@ -5,3 +5,7 @@
 .list-header {
     background-color: rgba(125, 220, 146, 0.7);
 }
+
+.green-icon {
+    color: green;
+}

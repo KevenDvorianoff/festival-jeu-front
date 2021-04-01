@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Price } from './price';
 import { PriceService } from './price.service';
+import { UpdatePriceComponentDialog } from './update-price.component';
 
 @Component({
   selector: 'app-festival-price-list',
@@ -13,11 +16,14 @@ export class FestivalPriceListComponent implements OnInit {
 
   @Input() festivalId!: number;
 
-  columns: string[] = ['label', 'tableCount', 'm2Count', 'tablePrice', 'm2Price', 'reservedTableCount', 'reservedM2Count', 'restant']
+  columns: string[] = ['label', 'tableCount', 'm2Count', 'tablePrice', 'm2Price', 'reservedTableCount', 'reservedM2Count', 'restant', 'icons']
   prices = new MatTableDataSource<Price>([]);
+  success: boolean = true;
 
   constructor(
-    private priceService: PriceService
+    private priceService: PriceService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -44,5 +50,24 @@ export class FestivalPriceListComponent implements OnInit {
 
   getTableRestante(price: Price) {
     return price.tableCount - price.reservedTableCount;
+  }
+
+  openUpdateDialog(price: Price) {
+    const dialogRef = this.dialog.open(UpdatePriceComponentDialog, {
+      data: {success: this.success, price: price}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getPrices();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Jeu modifié !")};
+    })
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 2000,
+      panelClass: ['snackbar-success']
+    });
   }
 }

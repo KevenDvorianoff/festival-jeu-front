@@ -51,6 +51,7 @@ import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './
 import { FestivalPriceListComponent } from './festival-price-list/festival-price-list.component';
 import { AddFestivalComponentDialog } from './list-festival/add-festival.component';
 import { UpdateFestivalComponentDialog } from './list-festival/update-festival.component';
+import { UpdatePriceComponentDialog } from './festival-price-list/update-price.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { UpdateFestivalComponentDialog } from './list-festival/update-festival.c
     ContactAddComponentDialog,
     FestivalPriceListComponent,
     AddFestivalComponentDialog,
-    UpdateFestivalComponentDialog
+    UpdateFestivalComponentDialog,
+    UpdatePriceComponentDialog,
   ],
   imports: [
     BrowserModule,
