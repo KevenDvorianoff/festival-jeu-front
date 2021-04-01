@@ -55,10 +55,10 @@ export class ZoneGamesComponentDialog implements OnInit{
 
     ngOnInit(){
       this.getGames(this.data.id);
+      console.log(this.games.length)
     }
 
     getGames(id: number): void {
       this.zonesService.getGamesForArea(id).subscribe(game => {this.games = game; });
     }
-
 }

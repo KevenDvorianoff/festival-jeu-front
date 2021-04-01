@@ -1,4 +1,8 @@
-"test"
-<ul>
-    <li *ngFor="let game of games">{{game.name}}</li>
-</ul>
+<mat-list >
+    <h1>Jeux</h1>
+    <div *ngFor="let game of games">
+    <mat-list-item > {{game.name}} 
+    <mat-divider></mat-divider>
+    </mat-list-item>
+    </div>
+</mat-list>

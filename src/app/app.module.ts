@@ -30,7 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ZonesComponent } from './zones/zones.component';
+import { ZonesComponent, ZoneGamesComponentDialog } from './zones/zones.component';
 import { ReservationComponent, ReservationsInfosComponentDialog } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -78,9 +78,10 @@ import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './
     EditeursEditComponentDialog,
     ContactAddComponentDialog,
     ContactEditComponentDialog,
-    DeleteContactComponentDialog,
     CurrentEditeursComponent,
     CurrentEditeurGamesComponentDialog
+    ZoneGamesComponentDialog
+    DeleteContactComponentDialog,
   ],
   imports: [
     BrowserModule,
