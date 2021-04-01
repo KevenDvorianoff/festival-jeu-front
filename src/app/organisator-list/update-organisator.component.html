@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Modifier l'organisateur :</h1>
+
+<form [formGroup]="confirmForm" (ngSubmit)="updateOrganisator()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>username</mat-label>
+            <input matInput required formControlName="username" name="username">
+        </mat-form-field> 
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>password</mat-label>
+            <input matInput required formControlName="password" name="password">
+        </mat-form-field>
+
+
+
+        <mat-label>Is Admin</mat-label>
+        <mat-checkbox required formControlName="isAdmin" name="isAdmin"></mat-checkbox>
+
+
+
+        <div *ngIf="error" class="error">{{ error }}</div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+
+        <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+            Modifier l'organisateur
+        </button>
+
+    </mat-dialog-actions>
+</form>

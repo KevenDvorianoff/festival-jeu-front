@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Ajouter un organisateur :</h1>
+
+<form [formGroup]="confirmForm" (ngSubmit)="createOrganisator()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Username</mat-label>
+            <input matInput required formControlName="username" name="username">
+        </mat-form-field> 
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Password</mat-label>
+            <input matInput required formControlName="password" name="password">
+        </mat-form-field>
+
+        <mat-label>Admin</mat-label>
+        <mat-checkbox required formControlName="isAdmin" name="isAdmin"></mat-checkbox>
+
+        <div *ngIf="error" class="error">{{ error }}</div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+
+        <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+            Ajouter un organisateur
+        </button>
+
+    </mat-dialog-actions>
+</form>

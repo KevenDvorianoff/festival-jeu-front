@@ -5,6 +5,10 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UpdateOrganisatorComponentDialog } from './update-organisator.component';
+import { AddOrganisatorComponentDialog} from './add-organisator.component';
+import { DeleteOrganisatorComponentDialog} from './delete-organisator.component';
 
 
 
@@ -15,21 +19,15 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./organisator-list.component.css']
 })
 export class OrganisatorListComponent implements OnInit, AfterViewInit {
-columns: string[] = ['username', 'isAdmin'];
+columns: string[] = ['username', 'isAdmin','icons'];
 organisateurs = new MatTableDataSource<User>([]);
 success: boolean = true;
 
 @ViewChild(MatSort) sort!: MatSort;
 @ViewChild(MatTable) table!: MatTable<any>;
 @ViewChild(MatPaginator) paginator!: MatPaginator;
-  organisators: User[] = [];
-  editUser: User | undefined;
-  username = '';
-  password = '';
-  isAdmin = false;
 
-
-  constructor(private organisatorService: OrganisatorService, public dialog: MatDialog) { }
+  constructor(private organisatorService: OrganisatorService, public dialog: MatDialog,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getOrganisators();
@@ -42,77 +40,58 @@ success: boolean = true;
     this.organisatorService.getOrganisators().subscribe(organisateurs => {this.organisateurs.data = organisateurs;
     this.table.renderRows(); });
   }
-  addUser(username: string): void {
-    this.editUser = undefined;
-    username = username.trim();
-    if (!username) {
-      return;
+  
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.organisateurs.filter = filterValue.trim().toLowerCase();
+
+    if (this.organisateurs.paginator) {
+      this.organisateurs.paginator.firstPage();
     }
-    const newUser: User = {username} as User;
-    this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
   }
-  deleteOrganisator(organisateur : User): void {
-    this.organisatorService
-  .deleteOrganisator(organisateur.id)
-  .subscribe();
-  }
-  edit(organisateur: User){
-    this.openDialog();
-    this.editUser = organisateur;
-  }
-  openDialog() {
-    const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
-      width: '60%',
-      data : {username: this.username,
-        password: this.password,
-        isAdmin: this.isAdmin}
+
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddOrganisatorComponentDialog, {
+      data: {success: this.success}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.username = result;
-      this.password = result;
-      this.isAdmin = result;
-    });
+      this.getOrganisators();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Organisateur ajouté !")};
+    })
   }
-  openDialog2() {
-    const dialogRef = this.dialog.open(OrganisatorsComponentDialog, {
-      width: '60%',
-      data : {username: this.username,
-        password: this.password,
-        isAdmin: this.isAdmin}
+
+  openDeleteDialog(user: User): void {
+    const dialogRef = this.dialog.open(DeleteOrganisatorComponentDialog, {
+      data: {success: this.success, organisatorUsername: user.username, organisatorId: user.id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.username = result;
-      this.password = result;
-      this.isAdmin = result;
+      this.getOrganisators();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Organisateur supprimé !")};
+    })
+  }
+
+  openUpdateDialog(user: User): void {
+    const dialogRef = this.dialog.open(UpdateOrganisatorComponentDialog, {
+      data: {success: this.success, user: user}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getOrganisators();
+      this.success = result;
+      if (this.success) {this.openSnackBar("Organisateur modifié !")};
+    })
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 2000,
+      panelClass: ['snackbar-success']
     });
   }
-}
-@Component({
-  selector: 'app-organisateur-add',
-  templateUrl: './add-organisator.html',
-})
-export class OrganisatorsComponentDialog {
-  organisators: User[] = [];
-  editUser: User | undefined;
-  constructor(private organisatorService: OrganisatorService,
-    public dialogRef: MatDialogRef<OrganisatorsComponentDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: User) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-  addUser(username: string): void {
-    this.editUser = undefined;
-    username = username.trim();
-    if (!username) {
-      return;
-    }
-    const newUser: User = {username} as User;
-    this.organisatorService.addUser(newUser).subscribe(user => this.organisators.push(user));
-  }
- 
 }
+

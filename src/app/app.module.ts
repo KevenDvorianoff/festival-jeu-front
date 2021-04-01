@@ -23,7 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { OrganisatorListComponent, OrganisatorsComponentDialog } from './organisator-list/organisator-list.component';
+import { OrganisatorListComponent } from './organisator-list/organisator-list.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
@@ -44,6 +44,9 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
 import { UpdateGameComponentDialog } from './game-list/update-game.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { DeleteOrganisatorComponentDialog } from './organisator-list/delete-organisator.component';
+import { UpdateOrganisatorComponentDialog } from './organisator-list/update-organisator.component';
+import { AddOrganisatorComponentDialog} from './organisator-list/add-organisator.component'
 
 
 @NgModule({
@@ -56,7 +59,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     EditeursAddComponentDialog,
     EditeurGamesComponentDialog,
     OrganisatorListComponent,
-    OrganisatorsComponentDialog,
     ZonesComponent,
     ReservationComponent,
     CurrentGameComponent,
@@ -66,9 +68,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     DeleteGameComponentDialog,
     YesNoPipe,
     UpdateGameComponentDialog,
-    AuthFormComponent,
     EditeursEditComponentDialog,
     ContactAddComponentDialog
+    AuthFormComponent,
+    DeleteOrganisatorComponentDialog,
+    UpdateOrganisatorComponentDialog,
+    AddOrganisatorComponentDialog
   ],
   imports: [
     BrowserModule,
