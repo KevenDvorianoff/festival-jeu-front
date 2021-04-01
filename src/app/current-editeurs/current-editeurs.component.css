@@ -1,0 +1,53 @@
+
+.editeur-card {
+    max-width: 170px;
+    min-width: 170px;
+    max-height: 180px;
+    min-height: 180px;
+    margin: 20px;
+    background-color: rgba(145, 216, 238, 0.3);
+    box-shadow: none;
+    
+  }
+
+  .editeur-card:hover{
+    background-color: rgba(145, 216, 238, 0.4);
+  }
+
+  .exposant-card{
+    max-width: 170px;
+    min-width: 170px;
+    max-height: 180px;
+    min-height: 180px;
+    margin: 20px;
+    background-color: rgba(125, 220, 146, 0.3);
+    box-shadow: none;
+
+  }
+
+  .exposant-card:hover{
+    background-color: rgba(125, 220, 146, 0.4);
+  }
+
+
+  .seeGames{
+    padding-left: 17%;
+  }
+
+
+  .spacer{
+    flex: 1 1 auto; 
+  }
+
+  .container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .head{
+    padding-top: 12px;
+  }
+
+  
+  

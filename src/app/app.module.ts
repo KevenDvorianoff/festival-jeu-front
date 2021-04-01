@@ -46,7 +46,8 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { DeleteOrganisatorComponentDialog } from './organisator-list/delete-organisator.component';
 import { UpdateOrganisatorComponentDialog } from './organisator-list/update-organisator.component';
-import { AddOrganisatorComponentDialog} from './organisator-list/add-organisator.component'
+import { AddOrganisatorComponentDialog} from './organisator-list/add-organisator.component';
+import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './current-editeurs/current-editeurs.component'
 
 
 @NgModule({
@@ -77,7 +78,9 @@ import { AddOrganisatorComponentDialog} from './organisator-list/add-organisato
     EditeursEditComponentDialog,
     ContactAddComponentDialog,
     ContactEditComponentDialog,
-    DeleteContactComponentDialog
+    DeleteContactComponentDialog,
+    CurrentEditeursComponent,
+    CurrentEditeurGamesComponentDialog
   ],
   imports: [
     BrowserModule,

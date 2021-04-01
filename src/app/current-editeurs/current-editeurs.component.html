@@ -1,0 +1,48 @@
+<div class="container">
+    <div *ngFor="let editeur of editeurs.sort()">
+      <div *ngIf="editeur.isPublisher; else exposant">
+        <mat-card class="editeur-card">
+          <mat-card-header >
+            <mat-card-title class="head">{{editeur.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <br>
+            <div>
+              Adresse : {{editeur.address}}
+              <br>
+              <div *ngIf="editeur.isActive; else editeurNonActif">
+                Editeur actif
+                </div>
+                <ng-template #editeurNonActif> Editeur inactif</ng-template>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="seeGames">
+            <button mat-button (click)="openGamesDialog(editeur.id)"> Voir les infos</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <ng-template #exposant>
+        <mat-card class="exposant-card">
+          <mat-card-header>
+            <mat-card-title class="head">{{editeur.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <br>
+            <div>
+              Adresse : {{editeur.address}}
+              <br>
+              <div *ngIf="editeur.isActive; else editeurNonActif">
+                Exposant actif
+                </div>
+                <ng-template #editeurNonActif> Exposant inactif</ng-template>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="seeGames">
+            <button mat-button (click)="openGamesDialog(editeur.id)"> Voir les infos</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-template>
+    </div>
+    
+  </div>
+ 

@@ -1,0 +1,10 @@
+<div class="container">
+        <h2>Jeux</h2>
+        <mat-list >
+            <div *ngFor="let game of games">
+            <mat-list-item > {{game.name}} : {{game.gameType}}
+            <mat-divider></mat-divider>
+            </mat-list-item>
+            </div>
+        </mat-list>
+</div>
