@@ -36,6 +36,7 @@
 }
 
 .publisher-card {
+  min-width: 650px;
   margin: 20px;
   background-color: rgba(145, 216, 238, 0.4);
   box-shadow: none;

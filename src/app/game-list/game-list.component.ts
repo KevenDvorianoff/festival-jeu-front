@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { AddGameComponentDialog } from './add-game.component';
 import { DeleteGameComponentDialog } from './delete-game.component';
 import { Game } from './game';
@@ -23,7 +23,6 @@ export class GameListComponent implements OnInit, AfterViewInit {
   success: boolean = true;
 
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -44,7 +43,6 @@ export class GameListComponent implements OnInit, AfterViewInit {
   getGames(): void {
     this.gameService.getGames().subscribe(games => {
       this.games.data = games;
-      this.table.renderRows();
     });
   }
 

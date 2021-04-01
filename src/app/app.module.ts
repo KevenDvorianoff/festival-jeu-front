@@ -48,6 +48,9 @@ import { DeleteOrganisatorComponentDialog } from './organisator-list/delete-orga
 import { UpdateOrganisatorComponentDialog } from './organisator-list/update-organisator.component';
 import { AddOrganisatorComponentDialog} from './organisator-list/add-organisator.component';
 import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './current-editeurs/current-editeurs.component'
+import { FestivalPriceListComponent } from './festival-price-list/festival-price-list.component';
+import { AddFestivalComponentDialog } from './list-festival/add-festival.component';
+import { UpdateFestivalComponentDialog } from './list-festival/update-festival.component';
 
 
 @NgModule({
@@ -82,6 +85,10 @@ import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './
     CurrentEditeurGamesComponentDialog,
     ZoneGamesComponentDialog,
     DeleteContactComponentDialog,
+    ContactAddComponentDialog,
+    FestivalPriceListComponent,
+    AddFestivalComponentDialog,
+    UpdateFestivalComponentDialog
   ],
   imports: [
     BrowserModule,

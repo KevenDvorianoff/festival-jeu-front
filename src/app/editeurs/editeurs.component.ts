@@ -49,7 +49,6 @@ export class EditeursComponent implements OnInit{
     this.editeurs.sort(function compare(a, b) {
       return a.name.localeCompare(b.name)
     });
-    console.log(this.editeurs[0])
   }
 
 

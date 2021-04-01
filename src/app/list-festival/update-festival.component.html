@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Modifier un festival :</h1>
+
+<form [formGroup]="confirmForm" (ngSubmit)="updateFestival()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Nom</mat-label>
+            <input matInput required formControlName="name" name="name">
+        </mat-form-field> 
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Date</mat-label>
+            <input type="date" matInput required formControlName="date" name="date">
+        </mat-form-field>
+
+        <mat-label>Actif</mat-label>
+        <mat-checkbox required formControlName="isActive" name="isActive"></mat-checkbox>
+
+        <div *ngIf="error" class="error">{{ error }}</div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+
+        <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+            Modifier un festival
+        </button>
+
+    </mat-dialog-actions>
+</form>

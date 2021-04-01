@@ -21,8 +21,8 @@ export class FestivalService {
   createFestival(
     name: string,
     date: Date,
-  ) {
-    return this.http.post(CREATE_FESTIVAL_URL, {
+  ): Observable<Festival> {
+    return this.http.post<Festival>(CREATE_FESTIVAL_URL, {
       name,
       date,
       isActive: false,

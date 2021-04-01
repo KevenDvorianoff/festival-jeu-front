@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Ajouter un festival :</h1>
+
+<form [formGroup]="confirmForm" (ngSubmit)="createFestival()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Nom</mat-label>
+            <input matInput required formControlName="name" name="name">
+        </mat-form-field> 
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Date</mat-label>
+            <input type="date" matInput required formControlName="date" name="date">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Zone - 1</mat-label>
+            <input matInput required formControlName="labelZone1" name="labelZone1">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Zone - 2</mat-label>
+            <input matInput required formControlName="labelZone2" name="labelZone2">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+            <mat-label>Zone - 3</mat-label>
+            <input matInput required formControlName="labelZone3" name="labelZone3">
+        </mat-form-field>
+
+        <div *ngIf="error" class="error">{{ error }}</div>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+
+        <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+            Ajouter un festival
+        </button>
+
+    </mat-dialog-actions>
+</form>
