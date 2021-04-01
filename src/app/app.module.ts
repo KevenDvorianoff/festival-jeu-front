@@ -69,7 +69,7 @@ import { AddOrganisatorComponentDialog} from './organisator-list/add-organisato
     YesNoPipe,
     UpdateGameComponentDialog,
     EditeursEditComponentDialog,
-    ContactAddComponentDialog
+    ContactAddComponentDialog,
     AuthFormComponent,
     DeleteOrganisatorComponentDialog,
     UpdateOrganisatorComponentDialog,
