@@ -79,8 +79,8 @@ import { CurrentEditeursComponent, CurrentEditeurGamesComponentDialog } from './
     ContactAddComponentDialog,
     ContactEditComponentDialog,
     CurrentEditeursComponent,
-    CurrentEditeurGamesComponentDialog
-    ZoneGamesComponentDialog
+    CurrentEditeurGamesComponentDialog,
+    ZoneGamesComponentDialog,
     DeleteContactComponentDialog,
   ],
   imports: [
