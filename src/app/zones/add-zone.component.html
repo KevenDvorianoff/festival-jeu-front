@@ -1,1 +1,15 @@
-<p>add-zone works!</p>
+<h2 mat-dialog-title>Information de la zone</h2>
+  <form [formGroup]="confirmForm" (ngSubmit)="addZone()">
+      <p>
+        <mat-form-field appearance="fill" hideRequiredMarker="true">
+          <mat-label>Nom de la zone</mat-label>
+          <input matInput required formControlName="label" name="label">
+        </mat-form-field>
+      </p>
+    <div mat-dialog-actions>
+      <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
+        Ajouter la zone
+      </button>
+  </div>
+  </form>
+

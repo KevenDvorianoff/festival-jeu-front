@@ -6,6 +6,7 @@ import { Game} from '../game-list/game';
 import { API_URL } from 'src/environments/environment';
 
 const CURRENT_AREAS_URL = `${API_URL}/festival/current/areas`;
+const CREATE_AREA_URL = `${API_URL}/area`
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,10 @@ getGamesForArea(id: number): Observable<Game[]>{
   let url = 'http://localhost:3000/reserved-game/area/' + id;
 
   return this.http.get<Game[]>(url);
+}
+
+addZone(label: string, festivalId: number){
+  return this.http.post(CREATE_AREA_URL, {label,festivalId})
 }
 
 

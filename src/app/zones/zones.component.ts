@@ -4,6 +4,7 @@ import { Zone } from './zone';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Game } from '../game-list/game';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddZoneComponentDialog } from './add-zone.component';
 
 export interface ZoneId{
   id: number;
@@ -16,7 +17,7 @@ export interface ZoneId{
 export class ZonesComponent implements OnInit {
 
   zones: Zone[] = [];
-  constructor(public dialog: MatDialog, private zonesService: ZonesService) { }
+  constructor(public dialog: MatDialog, private zonesService: ZonesService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getZones();
@@ -25,9 +26,28 @@ export class ZonesComponent implements OnInit {
     this.zonesService.getZones().subscribe(zone => {this.zones = zone; });
   }
 
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddZoneComponentDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getZones();
+      if (result) {this.openSnackBar("Zone ajouté !")};
+    })
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 2000,
+      panelClass: ['snackbar-success']
+    });
+  }
+
   openGamesDialog(id: number): void {
     const dialogRef = this.dialog.open(ZoneGamesComponentDialog,
-      {data : {id}});
+      {
+        width: '40%',
+        height: '50%',
+        data : {id}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -63,17 +83,6 @@ export class ZoneGamesComponentDialog implements OnInit{
 
     getGames(id: number): void {
       this.zonesService.getGamesForArea(id).subscribe(game => {this.games = game; });
-    }
-    openAddDialog(): void {
-      const dialogRef = this.dialog.open(AddZoneComponentDialog, {
-        data: {success: this.success}
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        this.getZones();
-        this.success = result;
-        if (this.success) {this.openSnackBar("Jeu ajouté !")};
-      })
     }
 
     openSnackBar(message: string) {

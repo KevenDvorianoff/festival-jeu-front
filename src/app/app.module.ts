@@ -54,7 +54,7 @@ import { UpdateFestivalComponentDialog } from './list-festival/update-festival.c
 import { UpdatePriceComponentDialog } from './festival-price-list/update-price.component';
 import { InvoiceListComponent } from './invoice-list/invoice-list.component';
 import { UpdateInvoiceComponentDialog } from './invoice-list/update-invoice.component';
-import { AddZoneComponent } from './add-zone/add-zone.component';
+import {AddZoneComponentDialog } from './zones/add-zone.component';
 
 
 @NgModule({
@@ -93,6 +93,11 @@ import { AddZoneComponent } from './add-zone/add-zone.component';
     AddFestivalComponentDialog,
     UpdateFestivalComponentDialog,
     UpdatePriceComponentDialog,
+    AddZoneComponentDialog,
+    InvoiceListComponent,
+    UpdateInvoiceComponentDialog,
+    DeleteReservationComponentDialog,
+    AddReservationComponentDialog
   ],
   imports: [
     BrowserModule,
