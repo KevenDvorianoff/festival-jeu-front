@@ -1,0 +1,32 @@
+.invoice-list {
+    margin: 20px;
+}
+
+.invoice-list-header {
+    display: flex;
+}
+
+.invoice-list-filter {
+    font-size: 14px;
+    width: 30%;
+}
+
+.invoice-list-table {
+    width: 100%;
+}
+
+.list-header {
+    background-color: rgba(125, 220, 146, 0.7);
+}
+
+.hide-header {
+    display: none;
+}
+
+.list-raw:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.green-icon {
+    color: green;
+}

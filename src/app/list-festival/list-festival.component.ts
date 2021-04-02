@@ -39,7 +39,7 @@ export class ListFestivalComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getFestivals();
       this.success = result;
-      if (this.success) {this.openSnackBar("Jeu ajouté !")};
+      if (this.success) {this.openSnackBar("Festival ajouté !")};
     })
   }
 
@@ -51,7 +51,7 @@ export class ListFestivalComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getFestivals();
       this.success = result;
-      if (this.success) {this.openSnackBar("Jeu modifié !")};
+      if (this.success) {this.openSnackBar("Festival modifié !")};
     })
   }
 

@@ -60,7 +60,7 @@ export class FestivalPriceListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getPrices();
       this.success = result;
-      if (this.success) {this.openSnackBar("Jeu modifié !")};
+      if (this.success) {this.openSnackBar("Prix modifié !")};
     })
   }
 

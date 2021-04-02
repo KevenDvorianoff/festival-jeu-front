@@ -52,6 +52,8 @@ import { FestivalPriceListComponent } from './festival-price-list/festival-price
 import { AddFestivalComponentDialog } from './list-festival/add-festival.component';
 import { UpdateFestivalComponentDialog } from './list-festival/update-festival.component';
 import { UpdatePriceComponentDialog } from './festival-price-list/update-price.component';
+import { InvoiceListComponent } from './invoice-list/invoice-list.component';
+import { UpdateInvoiceComponentDialog } from './invoice-list/update-invoice.component';
 
 
 @NgModule({
@@ -90,9 +92,10 @@ import { UpdatePriceComponentDialog } from './festival-price-list/update-price.c
     AddFestivalComponentDialog,
     UpdateFestivalComponentDialog,
     UpdatePriceComponentDialog,
-    UpdateFestivalComponentDialog,
     DeleteReservationComponentDialog,
-    AddReservationComponentDialog
+    AddReservationComponentDialog,
+    InvoiceListComponent,
+    UpdateInvoiceComponentDialog,
   ],
   imports: [
     BrowserModule,
