@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Information du contact</h2>
+  <form [formGroup]="confirmForm" (ngSubmit)="addReservation()">
+    <div class="res-form">
+      <mat-form-field appearance="fill" hideRequiredMarker="true" class="res-form-field">
+        <mat-label>Editeurs</mat-label>
+        <mat-select required formControlName="companyId">
+            <mat-option *ngFor="let editeur of editeurs.sort()" [value]="editeur.id">
+                {{editeur.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+
+    <section class="example-section">
+      <mat-slide-toggle class="example-margin" formControlName="isPresent" name="isPresent">
+        Présent
+      </mat-slide-toggle>
+    </section>
+    <section class="example-section">
+        <mat-slide-toggle class="example-margin" formControlName="isPlaced" name="isPlaced">
+          Placé
+        </mat-slide-toggle>
+      </section>
+      <section class="example-section">
+        <mat-slide-toggle class="example-margin" formControlName="needVolunteers" name="needVolunteers">
+          Besoin de volontaires
+        </mat-slide-toggle>
+      </section>
+      
+    <div mat-dialog-actions>
+      <button type="submit" mat-flat-button class="submit-but" cdkFocusInitial>
+        Créer la réservation
+      </button>
+  </div>
+  </form>

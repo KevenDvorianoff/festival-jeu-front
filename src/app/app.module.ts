@@ -31,7 +31,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ZonesComponent, ZoneGamesComponentDialog } from './zones/zones.component';
-import { ReservationComponent, ReservationsInfosComponentDialog } from './reservation/reservation.component';
+import { ReservationComponent, DeleteReservationComponentDialog, AddReservationComponentDialog } from './reservation/reservation.component';
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -68,7 +68,6 @@ import { UpdatePriceComponentDialog } from './festival-price-list/update-price.c
     ReservationComponent,
     CurrentGameComponent,
     ContactsComponent,
-    ReservationsInfosComponentDialog,
     AddGameComponentDialog,
     DeleteGameComponentDialog,
     YesNoPipe,
@@ -91,6 +90,9 @@ import { UpdatePriceComponentDialog } from './festival-price-list/update-price.c
     AddFestivalComponentDialog,
     UpdateFestivalComponentDialog,
     UpdatePriceComponentDialog,
+    UpdateFestivalComponentDialog,
+    DeleteReservationComponentDialog,
+    AddReservationComponentDialog
   ],
   imports: [
     BrowserModule,

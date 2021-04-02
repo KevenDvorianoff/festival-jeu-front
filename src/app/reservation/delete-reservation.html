@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Supprimer une reservation :</h1>
+
+<mat-dialog-content>
+    <p>Vous êtes sur le point de supprimer la réservation de  : {{data.resName}}</p>
+    <div *ngIf="error" class="error">{{ error }}</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+
+    <button mat-flat-button color="primary" (click)="deleteReservation()" cdkFocusInitial>
+        Confirmer la suppression
+    </button>
+
+</mat-dialog-actions>

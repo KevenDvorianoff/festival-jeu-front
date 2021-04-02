@@ -5,5 +5,6 @@ export interface Reservation{
     needVolunteers: boolean;
     isPresent: boolean;
     isPlaced: boolean;
+    companyName: string
 
   }

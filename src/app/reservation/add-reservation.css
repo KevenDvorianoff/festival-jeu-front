@@ -1,0 +1,23 @@
+.example-section {
+    margin-top: 7px;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  .res-form{
+    display: flex;
+  }
+
+  .res-form-field{
+    margin: 3px;
+  }
+
+  .submit-but{
+    background-color:  rgba(145, 216, 238, 0.6);
+  }
+  .submit-but:hover{
+    background-color:  rgba(145, 216, 238, 0.8);
+  }
