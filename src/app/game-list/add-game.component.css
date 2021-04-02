@@ -1,3 +1,31 @@
 .error {
     color: red;
 }
+
+.example-section {
+    margin-top: 7px;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  .game-form{
+    display: flex;
+  }
+
+  .game-form-field{
+    margin: 3px;
+  }
+  .game-form-field-long{
+    margin: 3px;
+    width: 100%;
+  }
+
+  .submit-but{
+    background-color:  rgba(145, 216, 238, 0.6);
+  }
+  .submit-but:hover{
+    background-color:  rgba(145, 216, 238, 0.8);
+  }

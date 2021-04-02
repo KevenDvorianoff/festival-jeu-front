@@ -1,47 +1,58 @@
-<h1 mat-dialog-title>Modifier le jeu :</h1>
+<h1 mat-dialog-title>Ajouter un jeu :</h1>
 
 <form [formGroup]="confirmForm" (ngSubmit)="updateGame()">
     <mat-dialog-content>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <div class="game-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Nom</mat-label>
             <input matInput required formControlName="name" name="name">
         </mat-form-field> 
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
-            <mat-label>Notice</mat-label>
-            <input matInput required formControlName="notice" name="notice">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Durée</mat-label>
             <input matInput required formControlName="duration" name="duration">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        </div>
+
+        <div class="game-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field-long">
+            <mat-label>Notice</mat-label>
+            <input matInput required formControlName="notice" name="notice">
+        </mat-form-field>
+        </div>
+
+        <div class="game-form">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Joueurs minimum</mat-label>
             <input type="number" matInput required formControlName="minPlayers" name="minPlayers">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true " class="game-form-field">
             <mat-label>Joueurs maximum</mat-label>
             <input type="number" matInput required formControlName="maxPlayers" name="maxPlayers">
         </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <div class="game-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Age minimum</mat-label>
             <input type="number" matInput required formControlName="minAge" name="minAge">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Age maximum</mat-label>
             <input type="number" matInput required formControlName="maxAge" name="maxAge">
         </mat-form-field>
+        </div>
 
-        <mat-label>Prototype</mat-label>
-        <mat-checkbox required formControlName="isPrototype" name="isPrototype"></mat-checkbox>
+        <div class="game-form">
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="game-form-field">
             <mat-label>Editeurs</mat-label>
             <mat-select required formControlName="publisherId">
                 <mat-option *ngFor="let editeur of editeurs.sort()" [value]="editeur.id">
@@ -60,13 +71,22 @@
             </mat-autocomplete>
         </mat-form-field>
 
+        </div>
+
+        <mat-label>Prototype</mat-label>
+        <mat-checkbox required formControlName="isPrototype" name="isPrototype"></mat-checkbox>
+
+        
+
+        
+
         <div *ngIf="error" class="error">{{ error }}</div>
 
     </mat-dialog-content>
     <mat-dialog-actions align="end">
 
         <button type="submit" mat-flat-button color="primary" cdkFocusInitial>
-            Modifier le jeu
+            Ajouter un jeu
         </button>
 
     </mat-dialog-actions>

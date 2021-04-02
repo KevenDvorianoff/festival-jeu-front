@@ -3,15 +3,19 @@
 <form [formGroup]="confirmForm" (ngSubmit)="updateFestival()">
     <mat-dialog-content>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+       <div class="fest-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field">
             <mat-label>Nom</mat-label>
-            <input matInput required formControlName="name" name="name">
+            <input matInput required formControlName="name" name="name" >
         </mat-form-field> 
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field">
             <mat-label>Date</mat-label>
             <input type="date" matInput required formControlName="date" name="date">
         </mat-form-field>
+
+        </div>
 
         <mat-label>Actif</mat-label>
         <mat-checkbox required formControlName="isActive" name="isActive"></mat-checkbox>

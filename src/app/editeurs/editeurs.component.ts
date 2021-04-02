@@ -79,6 +79,7 @@ export class EditeursComponent implements OnInit{
     });
   }
 
+ 
   openGamesDialog(id: number, isPublisher: boolean, isExhibitor: boolean) : void {
     const dialogRef = this.dialog.open(EditeurGamesComponentDialog,
       {

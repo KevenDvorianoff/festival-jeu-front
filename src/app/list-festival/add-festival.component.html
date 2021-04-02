@@ -3,30 +3,41 @@
 <form [formGroup]="confirmForm" (ngSubmit)="createFestival()">
     <mat-dialog-content>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <div class="fest-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field">
             <mat-label>Nom</mat-label>
             <input matInput required formControlName="name" name="name">
         </mat-form-field> 
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field">
             <mat-label>Date</mat-label>
             <input type="date" matInput required formControlName="date" name="date">
         </mat-form-field>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        </div>
+        <div class="game-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field-long">
             <mat-label>Zone - 1</mat-label>
             <input matInput required formControlName="labelZone1" name="labelZone1">
         </mat-form-field>
+        </div>
+        <div class="game-form">
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field-long">
             <mat-label>Zone - 2</mat-label>
             <input matInput required formControlName="labelZone2" name="labelZone2">
         </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill" hideRequiredMarker="true">
+        <div class="game-form">
+
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="fest-form-field-long">
             <mat-label>Zone - 3</mat-label>
             <input matInput required formControlName="labelZone3" name="labelZone3">
         </mat-form-field>
+        </div>
 
         <div *ngIf="error" class="error">{{ error }}</div>
 
