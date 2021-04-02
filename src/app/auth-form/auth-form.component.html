@@ -1,16 +1,19 @@
-<form [formGroup]="confirmForm" (ngSubmit)="login()">
+<form [formGroup]="confirmForm" class="auth-form-container" (ngSubmit)="login()">
+    <div class="auth-form">
 
-    <mat-form-field appearance="fill" hideRequiredMarker="true">
-        <mat-label>Identifiant</mat-label>
-        <input matInput required formControlName="username" name="username">
-    </mat-form-field> 
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="auth-form-field">
+            <mat-label>Identifiant</mat-label>
+            <input matInput required formControlName="username" name="username">
+        </mat-form-field> 
+    
+        <mat-form-field appearance="fill" hideRequiredMarker="true" class="auth-form-field">
+            <mat-label>Mot de passe</mat-label>
+            <input type="password" matInput required formControlName="password" name="password">
+        </mat-form-field>
+    
+        <div *ngIf="error" class="error">{{ error }}</div>
 
-    <mat-form-field appearance="fill" hideRequiredMarker="true">
-        <mat-label>Mot de passe</mat-label>
-        <input type="password" matInput required formControlName="password" name="password">
-    </mat-form-field>
-
-    <div *ngIf="error" class="error">{{ error }}</div>
+    </div>
 
     <button type="submit" mat-flat-button color="primary">
         Se connecter

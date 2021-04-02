@@ -1,3 +1,18 @@
 .error {
     color: red;
 }
+
+.auth-form {
+    display: flex;
+}
+
+.auth-form-field {
+    margin: 3px;
+}
+
+.auth-form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
