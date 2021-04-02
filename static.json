@@ -1,0 +1,4 @@
+{
+    "root": "dist/",
+    "error_page": "index.html"
+}
