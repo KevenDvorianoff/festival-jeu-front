@@ -7,13 +7,19 @@ import { Editeur } from './editeur';
 import { GameService } from '../game-list/game.service';
 import { Game } from '../game-list/game';
 import { Contact } from '../contacts/contact';
+import { API_URL } from 'src/environments/environment';
 
+const CREATE_EDITEURS_URL = `${API_URL}/company`;
+const GET_EDITEURS_URL = `${API_URL}/company`;
+const UPDATE_EDITEURS_URL = (companyId: number) => `${API_URL}/company/${companyId}`;
+const GET_EDITEUR_URL = (companyId: number) => `${API_URL}/company/${companyId}`;
+const GET_GAMES_EDITEUR_URL = (companyId: number) => `${API_URL}/game/company/${companyId}`;
+const GET_CONCTACT_EDITEUR_URL = (companyId: number) => `${API_URL}/contact/company/${companyId}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class EditeursService {
-  editeurUrl = 'http://localhost:3000/company';
 
   constructor(private http: HttpClient) { }
 
@@ -34,62 +40,50 @@ export class EditeursService {
       params.set("isActive", isActive ? "true" : "false")
     }
 
-    return this.http.get<Editeur[]>(this.editeurUrl, { params: params});
+    return this.http.get<Editeur[]>(GET_EDITEURS_URL, { params: params });
   }
 
   getGamesForEditeur(id: number): Observable<Game[]> {
-
-    const url = 'http://localhost:3000/game/company/' + id;
-
-    return this.http.get<Game[]>(url);
+    return this.http.get<Game[]>(GET_GAMES_EDITEUR_URL(id));
   }
 
-addEditeur(name: string,
-  address: string,
-  isActive: boolean,
-  isExhibitor: boolean,
-  isPublisher: boolean
-  ){
-    return this.http.post(this.editeurUrl, {
+  addEditeur(name: string,
+    address: string,
+    isActive: boolean,
+    isExhibitor: boolean,
+    isPublisher: boolean
+  ) {
+    return this.http.post(CREATE_EDITEURS_URL, {
       name,
       address,
       isExhibitor,
       isPublisher,
       isActive
     });
-}
+  }
 
-editEditeur(id: number,
-  name: string,
-  address: string,
-  isActive: boolean,
-  isExhibitor: boolean,
-  isPublisher: boolean
-  ){
-
-    const url = this.editeurUrl+"/"+id
-    
-    return this.http.patch(url, {
+  editEditeur(id: number,
+    name: string,
+    address: string,
+    isActive: boolean,
+    isExhibitor: boolean,
+    isPublisher: boolean
+  ) {
+    return this.http.patch(UPDATE_EDITEURS_URL(id), {
       name,
       address,
       isExhibitor,
       isPublisher,
       isActive
     });
-}
- 
+  }
+
   getContactForCompany(id: number): Observable<Contact[]> {
-    const url = 'http://localhost:3000/contact/company/' + id;
-
-    return this.http.get<Contact[]>(url);
+    return this.http.get<Contact[]>(GET_CONCTACT_EDITEUR_URL(id));
   }
 
-  getEditeur(id: number) : Observable<Editeur> {
-
-    const url = this.editeurUrl + "/" + id
-
-    return this.http.get<Editeur>(url);
-
+  getEditeur(id: number): Observable<Editeur> {
+    return this.http.get<Editeur>(GET_EDITEUR_URL(id));
   }
 
 }

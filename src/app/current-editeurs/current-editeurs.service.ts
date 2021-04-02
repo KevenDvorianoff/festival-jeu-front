@@ -5,15 +5,15 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Editeur } from '../editeurs/editeur';
 import { Game } from '../game-list/game';
+import { API_URL } from 'src/environments/environment';
 
-
+const GET_EDITEURS_URL = `${API_URL}/reserved-game/company`;
+const GET_GAMES_EDITEURS_URL = (companyId: number) => `${API_URL}/game/company/${companyId}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentEditeursService {
-
-  editeurUrl = 'http://localhost:3000/reserved-game/company';
 
   constructor(private http: HttpClient) { }
 
@@ -34,14 +34,11 @@ export class CurrentEditeursService {
       params.set("isActive", isActive ? "true" : "false")
     }
 
-    return this.http.get<Editeur[]>(this.editeurUrl, { params: params});
+    return this.http.get<Editeur[]>(GET_EDITEURS_URL, { params: params});
   }
 
   getGamesForEditeur(id: number): Observable<Game[]> {
-
-    const url = 'http://localhost:3000/game/company/' + id;
-
-    return this.http.get<Game[]>(url);
+    return this.http.get<Game[]>(GET_GAMES_EDITEURS_URL(id));
   }
 
 }
