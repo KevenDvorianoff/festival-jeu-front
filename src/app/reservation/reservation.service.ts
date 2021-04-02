@@ -11,8 +11,6 @@ const GET_RESERVATION_URL = `${API_URL}/reservation`;
 const UPDATE_RESERVATION_URL = (resId: number) => `${API_URL}/reservation/${resId}`;
 const DELETE_RESERVATION_URL = (resId: number) => `${API_URL}/reservation/${resId}`;
 
-const GET_CURRENT_ID = `${API_URL}/festival/current`
-
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +39,8 @@ createReservation(
   isPlaced: boolean,
   isPresent: boolean,
   needVolunteers: boolean,
-  date: Date
+  date: Date,
+  festivalId: number
 ){
   return this.http.post(CREATE_RESERVATION_URL, {
     comment: "Ajoutez un commentaire",
@@ -49,7 +48,7 @@ createReservation(
     isPresent,
     isPlaced,
     reservationDate: date,
-    festivalId : 1,
+    festivalId,
     companyId
     
 });

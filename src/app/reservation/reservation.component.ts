@@ -8,6 +8,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Editeur } from '../editeurs/editeur';
 import { EditeursService } from '../editeurs/editeurs.services';
+import { Festival } from '../list-festival/festival';
+import { FestivalService } from '../list-festival/festival.service';
 
 export interface DialogData{
   resName: string,
@@ -139,16 +141,19 @@ export class AddReservationComponentDialog implements OnInit {
 
 
     editeurs: Editeur[] = [];
+    festivals: Festival[] = [];
 
     constructor(
         private reseService: ReservationService,
         private editeurService: EditeursService,
-        private dialogRef: MatDialogRef<AddReservationComponentDialog>
+        private dialogRef: MatDialogRef<AddReservationComponentDialog>,
+        private festivalService: FestivalService
     ) { 
     }
 
     ngOnInit() {
         this.editeurService.getEditeurs().subscribe(editeurs => this.editeurs = editeurs);
+        this.festivalService.getCurrent().subscribe(festival => this.festivals = festival)
     }
 
     date = new Date()
@@ -160,7 +165,8 @@ export class AddReservationComponentDialog implements OnInit {
             this.isPlaced,
             this.isPresent,
             this.needVolunteers,
-            this.date
+            this.date,
+            this.festivals[0].id
 
         ).subscribe(
             () => {

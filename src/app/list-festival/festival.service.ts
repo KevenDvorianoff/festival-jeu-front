@@ -11,6 +11,8 @@ const GET_FESTIVALS_URL = `${API_URL}/festival`;
 const UPDATE_FESTIVAL_URL = (festivalId: number) => `${API_URL}/festival/${festivalId}`;
 const DELETE_FESTIVAL_URL = (festivalId: number) => `${API_URL}/festival/${festivalId}`;
 
+const GET_CURRENT_ID = `${API_URL}/festival/current`
+
 @Injectable({
   providedIn: 'root'
 })
@@ -48,6 +50,10 @@ export class FestivalService {
 
   deleteFestival(festivalId: number) {
     return this.http.delete(DELETE_FESTIVAL_URL(festivalId));
+  }
+
+  getCurrent(): Observable<Festival[]>{
+    return this.http.get<Festival[]>(GET_CURRENT_ID);
   }
 
 }
