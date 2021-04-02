@@ -3,6 +3,7 @@ import { ZonesService } from './zones.service';
 import { Zone } from './zone';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Game } from '../game-list/game';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface ZoneId{
   id: number;
@@ -49,6 +50,8 @@ export class ZoneGamesComponentDialog implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<ZoneGamesComponentDialog>,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: ZoneId,
     private zonesService: ZonesService)
      {}
@@ -60,5 +63,23 @@ export class ZoneGamesComponentDialog implements OnInit{
 
     getGames(id: number): void {
       this.zonesService.getGamesForArea(id).subscribe(game => {this.games = game; });
+    }
+    openAddDialog(): void {
+      const dialogRef = this.dialog.open(AddZoneComponentDialog, {
+        data: {success: this.success}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        this.getZones();
+        this.success = result;
+        if (this.success) {this.openSnackBar("Jeu ajouté !")};
+      })
+    }
+
+    openSnackBar(message: string) {
+      this.snackBar.open(message, undefined, {
+        duration: 2000,
+        panelClass: ['snackbar-success']
+      });
     }
 }

@@ -23,4 +23,6 @@
     justify-content: left;
   }
   
-  
+  .green-icon {
+    color: green;
+}
